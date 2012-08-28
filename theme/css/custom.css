@@ -1,3 +1,23 @@
+#amg {
+  background: transparent url('../../images/amg.jpg') no-repeat bottom right;
+  min-height: 70%;
+}
+
+#mnb {
+  background: transparent url('../../images/mnb.png') no-repeat bottom right;
+  min-height: 70%;
+}
+
+#wm {
+  background: transparent url('../../images/welcomemedia.jpg') no-repeat bottom right;
+  min-height: 70%;
+}
+
+#tom {
+  background: transparent url('../../images/optinmachine.jpg') no-repeat bottom right;
+  min-height: 70%;
+}
+
 #couchdb {
   background: transparent url('../../images/couchdb.png') no-repeat bottom right;
   min-height: 400px;
@@ -8,7 +28,16 @@
   min-height: 400px;
 }
 
+#octocat {
+  background: transparent url('../../images/Octocat.png') no-repeat bottom right;
+  min-height: 450px;
+}
+
 #vagrant {
   background: transparent url('../../images/vagrant-hippie.png') no-repeat bottom right;
   min-height: 410px;
+}
+
+#vagrantup_shellr {
+  /*height: 400px;*/
 }

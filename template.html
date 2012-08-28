@@ -51,13 +51,30 @@ URL: https://code.google.com/p/io-2012-slides
     <hgroup>
       <h2>Arthur Media Group</h2>
     </hgroup>
-    <article>
+    <article id="amg">
       <ul>
         <li><b style="color:#234E74;">P comme Performance</b></li>
         <li><b style="color:#D20D0D;">Mails &amp; Brands</b></li>
         <li><b style="color:#A80F3F;">Welcome Media</b></li>
         <li><b style="color:#F68E03;">The Optin Machine</b></li>
       </ul>
+      <!--
+      <table border="0">
+        <tr>
+          <th>Monétisation</th>
+          <th>Collecte</th>
+          <th>Location</th>
+        </tr>
+        <tr>
+          <td>
+            <b style="color:#234E74;">P comme Performance</b><br/>
+            <b style="color:#D20D0D;">Mails &amp; Brands</b>
+          </td>
+          <td><b style="color:#F68E03;">The Optin Machine</b></td>
+          <td><b style="color:#A80F3F;">Welcome Media</b></td>
+        </tr>
+      </table>
+      -->
     </article>
   </slide>
   
@@ -91,7 +108,7 @@ URL: https://code.google.com/p/io-2012-slides
     <hgroup>
       <h2>Mails &amp; Brands</h2>
     </hgroup>
-    <article>
+    <article id="mnb">
       <ul>
         <li>
           Même activité que <b style="color:#234E74;">P Comme Performance</b>, 
@@ -115,7 +132,7 @@ URL: https://code.google.com/p/io-2012-slides
     <hgroup>
       <h2>Welcome Media</h2>
     </hgroup>
-    <article>
+    <article id="wm">
       <ul>
         <li>Génération de Traffic Nielsen, Cliques, Lead</li>
         <li>Édition de site web :
@@ -141,7 +158,7 @@ URL: https://code.google.com/p/io-2012-slides
     <hgroup>
       <h2>The Optin Machine</h2>
     </hgroup>
-    <article>
+    <article id="tom">
       <ul>
         <li>Recrutement d'adresse via Overlays, enquêtes, jeux concours</li>
         <li>Livraison des profils collectés</li>
@@ -401,15 +418,18 @@ URL: https://code.google.com/p/io-2012-slides
       <h2>Technologies retenues</h2>
       <h3>Gestion des configurations</h3>
     </hgroup>
-    <article>
+    <article id="octocat">
       <h4>Développement de modules pour chaque brique de notre infrastructure :</h4><br/>
       <ul>
-        <li>Bases de données CouchDB https://github.com/Benjamin-Ds/puppet-module-couchdb</li>
+        <li>Bases de données <a href="https://github.com/Benjamin-Ds/puppet-module-couchdb">CouchDB</a></li>
         <li>Serveur statiques</li>
         <li>Serveurs de Tracking</li>
       </ul>
       <br />
-      <h4>Au même titre que nos applications, tous les modules sont sous contrôle de version avec Git</h4>
+      <h4>
+        Au même titre que nos applications, tous les modules sont sous contrôle de version avec Git
+        et hébergé sur <a href="https://github.com/">Github</a>.
+      </h4>
     </article>
   </slide>
   
@@ -439,7 +459,7 @@ URL: https://code.google.com/p/io-2012-slides
           notify  => Service['nginx'],
           require => Package['nginx-full'];
         }
-        # suite ...
+        # rest of code ...
       }
       </pre>
     </article>
@@ -455,7 +475,7 @@ URL: https://code.google.com/p/io-2012-slides
       <pre class="prettyprint" data-lang="ruby">
       # File /etc/puppet/manifests/site.pp
       
-      # all
+      # All
       node default {
         include init_host, sysctl_tuning, rsyslog, munin, nagios
       }
@@ -545,13 +565,25 @@ URL: https://code.google.com/p/io-2012-slides
       # work [...]
       vagrant destroy   
       </pre>
-      <!--
-      Exemple disponible sur ce dépôt git :
-      <a href="https://github.com/Benjamin-Ds/test-couchdb-elasticsearch.git">Elasticsearch + CouchDB</a>
-      -->
+      <footer class="source">
+        Source sur Github : 
+        <a href="https://github.com/Benjamin-Ds/test-couchdb-elasticsearch.git">
+          Elasticsearch + CouchDB
+        </a>
+      </footer>
     </article>
   </slide>
   
+  <slide>
+    <hgroup>
+      <h2>Technologies retenues</h2>
+      <h3>Environnement "Production like" avec Virtualbox, Vagrant et Puppet</h3>
+    </hgroup>
+    <article>
+      <iframe border="0" height="437" scrolling="no" data-src="http://shelr.tv/records/4f881a61966080020e000001/embed" style="border: 0" width="668"></iframe>
+    </article>
+  </slide>
+    
   <!-- Technologies retenues : orchestration -->
   <slide>
     <hgroup>
@@ -615,6 +647,51 @@ URL: https://code.google.com/p/io-2012-slides
           else:
               print(red('Module name required !'))
       </pre>
+    </article>
+  </slide>
+  
+  <!-- Technologies retenues : Superivion : monitoring actif avec Nagios -->
+  <slide>
+    <hgroup>
+      <h2>Technologies retenues</h2>
+      <h3>Supervision</h3>
+    </hgroup>
+    <article class="flexbox">
+      <img src="images/nagios.png" alt="Nagios" class="centered"/>
+      <footer class="source">Monitoring actif des services avec Nagios</footer>
+    </article>
+  </slide>
+  
+  <!-- Technologies retenues : Superivion : graphs avec Munin -->
+  <slide>
+    <hgroup>
+      <h2>Technologies retenues</h2>
+      <h3>Supervision : graphiques avec Munin</h3>
+    </hgroup>
+    <article>
+      <ul>
+        <li>Charge cpu, disque, RAM, interfaces réseaux, requêtes HTTP/s ...</li>
+        <li>Agrégation des graphiques des machines du même "pool"</li>
+      </ul>
+      <div class="centered"><img src="images/nginx_requests-day.png" alt="nginx requests" /></div>
+    </article>
+  </slide>
+  
+  <!-- Technologies retenues : Superivion : graphs avec Munin -->
+  <slide>
+    <hgroup>
+      <h2>Technologies retenues</h2>
+      <h3>Supervision : centralisation des Logs</h3>
+    </hgroup>
+    <article>
+      <div class="centered">
+        <a href="https://papertrailapp.com/" style="border:0;">
+          <img src="images/papertrail_diagram.png" alt="Papertrail" />
+        </a>
+      </div>
+      <footer class="source">
+        Source :<a href="https://papertrailapp.com/">Papertrail</a>
+      </footer>
     </article>
   </slide>
   
