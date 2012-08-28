@@ -18,6 +18,7 @@ URL: https://code.google.com/p/io-2012-slides
   <!--<meta name="viewport" content="initial-scale=0.4">-->
   <meta name="apple-mobile-web-app-capable" content="yes">
   <link rel="stylesheet" media="all" href="theme/css/default.css">
+  <link rel="stylesheet" media="all" href="theme/css/custom.css">
   <link rel="stylesheet" media="only screen and (max-device-width: 480px)" href="theme/css/phone.css">
   <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->
   <script data-main="js/slides" src="js/require-1.0.8.min.js"></script>
@@ -287,7 +288,7 @@ URL: https://code.google.com/p/io-2012-slides
     <article>
       <ul>
         <li>Améliorer la disponibilité de l'infrastructure</li>
-        <li>Régler les problème lié à la base de données</li>
+        <li>Régler les problèmes liés à la base de données</li>
         <li>Refactoring complet du tracking</li>
         <li>
           Automatiser au maximum les opérations et déploiement de l'infrastructure
@@ -307,14 +308,13 @@ URL: https://code.google.com/p/io-2012-slides
       <h2>Technologies retenues</h2>
       <h3>Base de données</h3>
     </hgroup>
-    <article>
+    <article id="couchdb">
       <q>
         Apache <a href="http://couchdb.apache.org/">CouchDB</a>™ is a database
         that uses JSON for documents,
         JavaScript for MapReduce queries,
         and regular HTTP for an API      
       </q>
-      <!--<img src="" alt="CouchDB" />-->
     </article>
   </slide>
   
@@ -344,10 +344,12 @@ URL: https://code.google.com/p/io-2012-slides
     </hgroup>
     <article>
       <ul>
-        <li>Nginx + PHP pour le traitement de la requêtes</li>
+        <li>Nginx + PHP (php-fpm) pour le traitement de la requêtes</li>
         <li>Redis (base de données clé/valeur) pour l'enregistrement des affichages/cliques</li>
         <li>Agrégation des statistiques de chaque noeud par le Backend via REST</li>
       </ul>
+      <img src="images/nginx.gif" alt="Nginx" width="150" height="50" />
+      <img src="images/redis.png" alt="Redis" width="93" height="30" />
     </article>
   </slide>
   
@@ -359,18 +361,263 @@ URL: https://code.google.com/p/io-2012-slides
     </hgroup>
     <article>
       <ul>
+        <li>Mise en place de nos propres serveurs</li>
         <li>Remplacement de lighttpd par Nginx</li>
         <li>Load balancing via Round Robin
           <ul>
             <li>Équilibrage de charge inégale</li>
-            <li>Si un host est indispo, il faut une action manuel 
-              pour le retirer du round robin et attendre le TTL</li>
+            <li>
+              Si un host est indispo, il faut une action manuel 
+              pour le retirer du round robin et attendre le TTL
+            </li>
           </ul>
         </li>
       </ul>
     </article>
   </slide>
+  
+  <!-- Technologies retenues : infrastructure as code -->
+  <slide>
+    <hgroup>
+      <h2>Technologies retenues</h2>
+      <h3>Gestion des configurations</h3>
+    </hgroup>
+    <article id="puppet">
+      <h3>Puppet</h3>
+      <!--
+      <p>
+        Puppet est un outil de gestion de configuration qui permet de mettre à jour de façon automatisée 
+        et selon un scénario prédéfini un ensemble de serveurs. 
+        L'idée est de décrire l’état désiré du serveur et Puppet se chargera de réaliser les actions nécessaires pour y parvenir.
+        Puppet est écrit en Ruby, sous licence Apache. Basé sur une architecture client/serveur, il est multi-plateforme.
+      </p>
+      -->
+    </article>
+  </slide>
+  
+  <!-- Technologies retenues : infrastructure as code -->
+  <slide>
+    <hgroup>
+      <h2>Technologies retenues</h2>
+      <h3>Gestion des configurations</h3>
+    </hgroup>
+    <article>
+      <h4>Développement de modules pour chaque brique de notre infrastructure :</h4><br/>
+      <ul>
+        <li>Bases de données CouchDB https://github.com/Benjamin-Ds/puppet-module-couchdb</li>
+        <li>Serveur statiques</li>
+        <li>Serveurs de Tracking</li>
+      </ul>
+      <br />
+      <h4>Au même titre que nos applications, tous les modules sont sous contrôle de version avec Git</h4>
+    </article>
+  </slide>
+  
+  <!-- Technologies retenues : infrastructure as code, exemple de module -->
+  <slide>
+    <hgroup>
+      <h2>Technologies retenues</h2>
+      <h3>Gestion des configurations</h3>
+    </hgroup>
+    <article class="smaller">
+      <pre class="prettyprint" data-lang="ruby">
+      # File modules/tom_static/manifests/init.pp
+      class tom_static {
+        package { 'nginx-full':
+          ensure  => 'installed',
+        }
+        
+        service { 'nginx':
+          ensure  => running,
+          enable  => true,
+          require => Package['nginx-full'];
+        }
+        
+        file { '/etc/nginx/nginx.conf':
+          ensure  => 'file',
+          content => template('tom_static/etc/nginx/nginx.conf.erb'),
+          notify  => Service['nginx'],
+          require => Package['nginx-full'];
+        }
+        # suite ...
+      }
+      </pre>
+    </article>
+  </slide>
+  
+  <!-- Technologies retenues : Puppet roles -->
+  <slide>
+    <hgroup>
+      <h2>Technologies retenues</h2>
+      <h3>Définition des rôles des serveurs avec Puppet</h3>
+    </hgroup>
+    <article class="smaller">
+      <pre class="prettyprint" data-lang="ruby">
+      # File /etc/puppet/manifests/site.pp
+      
+      # all
+      node default {
+        include init_host, sysctl_tuning, rsyslog, munin, nagios
+      }
+      
+      # DB
+      node '/^db\d+\.optin-machine\.fr$/' {
+        class { 'couchdb':
+          bind => '0.0.0.0',
+        }
+      }
+      
+      # Statics
+      node '/^static\d+\.optin-machine\.fr$/' {
+        include tom_static
+      }
+      </pre>
+    </article>
+  </slide>
+  
+  <!-- Technologies retenues : Environnement "Production like" -->
+  <slide>
+    <hgroup>
+      <h2>Technologies retenues</h2>
+      <h3>Vagrant</h3>
+    </hgroup>
+    <article id="vagrant">
+      <h4>
+        Création et configuration d'environnement 
+        de développement reproductible et portable.
+      </h4>
+      </br />
+      <p>pré-requis :</p>
+      <ul>
+        <li><a href="http://www.virtualbox.org/">Oracle’s VirtualBox</a></li>
+        <li>Ruby 1.8 +</li>
+        <li>
+          <a href="http://vagrantup.com/">Vagrant</a> : 
+          <code>gem install vagrant</code>
+        </li>
+      </ul>
+    </article>
+  </slide>
+  
+  <!-- Technologies retenues : Environnement "Production like" -->
+  <slide>
+    <hgroup>
+      <h2>Technologies retenues</h2>
+      <h3>Environnement "Production like" avec Virtualbox, Vagrant et Puppet</h3>
+    </hgroup>
+    <article class="smaller">
+      <pre class="prettyprint" data-lang="ruby">
+      # Vagrantfile 
+      # exemple : https://github.com/Benjamin-Ds/puppet-module-couchdb/blob/master/Vagrantfile
+      Vagrant::Config.run do |config|
+        config.vm.box = "squeeze64"
+        config.vm.box_url = "https://domain.tld/vagrantboxes/squeeze64.box"
 
+        config.vm.provision :puppet do |puppet|
+          puppet.manifests_path = "manifests"
+          puppet.module_path = "~/Code/puppet/modules"
+          puppet.manifest_file = "site.pp"
+          puppet.options = "--verbose"
+        end
+
+        config.vm.define :couchdb do |couchdb_config|
+          couchdb_config.vm.host_name = "couchdb"
+          couchdb_config.vm.network :hostonly, "192.168.33.10"
+          couchdb_config.vm.forward_port 5984, 5984
+          couchdb_config.vm.forward_port 9200, 9200
+        end
+      end
+      </pre>
+    </article>
+  </slide>
+  
+  <slide>
+    <hgroup>
+      <h2>Technologies retenues</h2>
+      <h3>Environnement "Production like" avec Virtualbox, Vagrant et Puppet</h3>
+    </hgroup>
+    <article>
+      <pre class="prettyprint" data-lang="shell">
+      git clone git://github.com/Benjamin-Ds/test-couchdb-elasticsearch.git 
+      cd test-couchdb-elasticsearch
+      git submodule update --init
+      vagrant up        
+      # work [...]
+      vagrant destroy   
+      </pre>
+      <!--
+      Exemple disponible sur ce dépôt git :
+      <a href="https://github.com/Benjamin-Ds/test-couchdb-elasticsearch.git">Elasticsearch + CouchDB</a>
+      -->
+    </article>
+  </slide>
+  
+  <!-- Technologies retenues : orchestration -->
+  <slide>
+    <hgroup>
+      <h2>Technologies retenues</h2>
+      <h3>Orchestration / déploiement des serveurs avec Fabric</h3>
+    </hgroup>
+    <article>
+      <q>
+        Fabric is a Python (2.5 or higher) library and command-line tool for streamlining 
+        the use of SSH for application deployment or systems administration tasks.
+      </q>
+    </article>
+  </slide>
+  
+  <!-- Technologies retenues : orchestration -->
+  <slide>
+    <hgroup>
+      <h2>Technologies retenues</h2>
+      <h3>Orchestration / déploiement des serveurs avec Fabric</h3>
+    </hgroup>
+    <article class="smaller">
+      <ul>
+        <li>Tâche de déploiement des applications et modules Puppet via Git</li>
+        <li>Configuration des machines avec Puppet</li>
+        <li>Mise à jour des serveurs, redémarrage des services ...</li>
+      </ul>
+      <br />
+      <pre class="prettyprint" data-lang="shell">
+      # Configuration/mise à niveau 'manuel' de 'db01.optin-machine.fr' avec Puppet
+      fab -H db01.optin-machine.fr configure:modules='couchdb,munin,nagios'
+      
+      # Configuration en se référant au fichier 'site.pp' pour déterminer les modules à appliquer
+      fab -H db01.optin-machine.fr configure:site='/etc/puppet/manifests/site.pp'
+      
+      # Déployer du code depuis le SCM
+      fab -H front01.domain.tld -A \ 
+      deploy:repo='git@github.com:ArthurMediaGroup/www.programma-tv.com.git', \
+      dest='/home/http/www.programma-tv.com'
+      </pre>
+    </article>
+  </slide>
+  
+  <!-- Technologies retenues : orchestration -->
+  <slide>
+    <hgroup>
+      <h2>Technologies retenues</h2>
+      <h3>Orchestration / déploiement des serveurs avec Fabric</h3>
+    </hgroup>
+    <article>
+      <pre class="prettyprint" data-lang="python">      
+      def puppet_apply(module='', args='', options='--modulepath /etc/puppet/modules'):
+          """
+          Apply Puppet module
+
+          eg : fab -R db puppet_apply:module=couchdb
+          """
+          if module != '':
+              print(green("Apply '%s' Puppet module to %s" % (module, env.host_string)))
+              options += ' --logdest console --logdest syslog'
+              run("puppet apply -e 'include %(module)s %(args)s' %(options)s" % locals())
+          else:
+              print(red('Module name required !'))
+      </pre>
+    </article>
+  </slide>
+  
   <slide>
     <hgroup>
       <h2>Code Slide (with Subtitle Placeholder)</h2>

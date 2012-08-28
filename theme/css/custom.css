@@ -1,0 +1,14 @@
+#couchdb {
+  background: transparent url('../../images/couchdb.png') no-repeat bottom right;
+  min-height: 400px;
+}
+
+#puppet {
+  background: transparent url('../../images/puppet.png') no-repeat bottom right;
+  min-height: 400px;
+}
+
+#vagrant {
+  background: transparent url('../../images/vagrant-hippie.png') no-repeat bottom right;
+  min-height: 410px;
+}
