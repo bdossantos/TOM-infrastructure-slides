@@ -1,8 +1,8 @@
 var SLIDE_CONFIG = {
   // Slide settings
   settings: {
-    title: 'The Optin Machine, l\'infrastructure',
-    subtitle: '',
+    title: 'The Optin Machine',
+    subtitle: 'Refonte complète de l\'infrastructure',
     useBuilds: true, // Default: true. False will turn off slide animation builds.
     usePrettify: true, // Default: true
     enableSlideAreas: true, // Default: true. False turns off the click areas on either slide of the slides.
@@ -20,7 +20,7 @@ var SLIDE_CONFIG = {
   presenters: [{
     name: 'Benjamin Dos Santos',
     company: 'Sys Admin, Arthur Media Group',
-    gplus: 'http://plus.google.com/1234567890',
+    gplus: 'http://plus.google.com/101066358415149097889',
     twitter: '@benjamin_ds',
     www: 'http://b-ds.fr',
     github: 'http://github.com/Benjamin-Ds'
