@@ -45,7 +45,7 @@ URL: https://code.google.com/p/io-2012-slides
       <p data-config-presenter></p>
     </hgroup>
   </slide>
-  
+
   <!-- Présentation AMG -->
   <slide>
     <hgroup>
@@ -77,7 +77,7 @@ URL: https://code.google.com/p/io-2012-slides
       -->
     </article>
   </slide>
-  
+
   <!-- Présentation PCP -->
   <slide>
     <hgroup>
@@ -86,7 +86,7 @@ URL: https://code.google.com/p/io-2012-slides
     <article>
       <ul>
         <li>
-          Régie qui héberge des bases de données 
+          Régie qui héberge des bases de données
           clients et les rentabilise
           <ul>
             <li>
@@ -102,7 +102,7 @@ URL: https://code.google.com/p/io-2012-slides
       </ul>
     </article>
   </slide>
-  
+
   <!-- Présentation M&B -->
   <slide>
     <hgroup>
@@ -111,7 +111,7 @@ URL: https://code.google.com/p/io-2012-slides
     <article id="mnb">
       <ul>
         <li>
-          Même activité que <b style="color:#234E74;">P Comme Performance</b>, 
+          Même activité que <b style="color:#234E74;">P Comme Performance</b>,
           à l'international
         </li>
         <li>30 collaborateurs, 7 langues, 12 pays</li>
@@ -126,7 +126,7 @@ URL: https://code.google.com/p/io-2012-slides
       </ul>
     </article>
   </slide>
-  
+
   <!-- Présentation WM -->
   <slide>
     <hgroup>
@@ -143,7 +143,7 @@ URL: https://code.google.com/p/io-2012-slides
         <li>Édition de Newletters :
           <ul>
             <li>
-              Météo France, Ventes Privées du jour, 20minutes, Le Figaro, 
+              Météo France, Ventes Privées du jour, 20minutes, Le Figaro,
               NRJ, Marie Claire, Cosmopolitan ...
             </li>
           </ul>
@@ -173,15 +173,15 @@ URL: https://code.google.com/p/io-2012-slides
       </ul>
     </article>
   </slide>
-  
-  <!-- Desc projet -->
+
+  <!-- Description projet -->
   <slide>
     <hgroup>
       <h2>Description du projet</h2>
     </hgroup>
     <article>
       <h3>
-        Refonte de l'infrastructure de la société 
+        Refonte de l'infrastructure de la société
         <span style="color:#F68E03;">The Optin Machine</span>
       </h3><br />
       <ul>
@@ -226,6 +226,19 @@ URL: https://code.google.com/p/io-2012-slides
     </article>
   </slide>
 
+  <!-- Présentation de l'existant, schéma -->
+  <slide>
+    <hgroup>
+      <h2>L'existant</h2>
+    </hgroup>
+    <article class="flexbox vcenter">
+      <img src="images/tom-old.png" alt="" />
+      <footer class="source">
+        https://cacoo.com/diagrams/dND4SXZLkcGWQnaI
+      </footer>
+    </article>
+  </slide>
+
   <!-- Les limites de l'existant -->
   <slide>
     <hgroup>
@@ -235,7 +248,7 @@ URL: https://code.google.com/p/io-2012-slides
       <h3 class="red">La Haute Disponibilité :</h3><br/>
       <ul>
         <li>SPOF au niveau du Front</li>
-        <li>Pas de "Failover" automatique pour la DB 
+        <li>Pas de "Failover" automatique pour la DB
           <ul>
             <li>Passage de l'esclave en Maître en cas de défaillance du maître</li>
           </ul>
@@ -256,7 +269,7 @@ URL: https://code.google.com/p/io-2012-slides
       </ul>
     </article>
   </slide>
-  
+
   <!-- Les limites de l'existant -->
   <slide>
     <hgroup>
@@ -279,7 +292,7 @@ URL: https://code.google.com/p/io-2012-slides
       </ul>
     </article>
   </slide>
-  
+
   <!-- Les limites de l'existant -->
   <slide>
     <hgroup>
@@ -296,7 +309,7 @@ URL: https://code.google.com/p/io-2012-slides
       </ul>
     </article>
   </slide>
-  
+
   <!-- Objectifs -->
   <slide>
     <hgroup>
@@ -318,7 +331,7 @@ URL: https://code.google.com/p/io-2012-slides
       </ul>
     </article>
   </slide>
-  
+
   <!-- Technologies retenues : DB -->
   <slide>
     <hgroup>
@@ -330,11 +343,11 @@ URL: https://code.google.com/p/io-2012-slides
         Apache <a href="http://couchdb.apache.org/">CouchDB</a>™ is a database
         that uses JSON for documents,
         JavaScript for MapReduce queries,
-        and regular HTTP for an API      
+        and regular HTTP for an API
       </q>
     </article>
   </slide>
-  
+
   <!-- Technologies retenues : Supports de collecte -->
   <slide>
     <hgroup>
@@ -352,7 +365,7 @@ URL: https://code.google.com/p/io-2012-slides
       </ul>
     </article>
   </slide>
-  
+
   <!-- Technologies retenues : Tracking -->
   <slide>
     <hgroup>
@@ -369,7 +382,7 @@ URL: https://code.google.com/p/io-2012-slides
       <img src="images/redis.png" alt="Redis" width="93" height="30" />
     </article>
   </slide>
-  
+
   <!-- Technologies retenues : statiques -->
   <slide>
     <hgroup>
@@ -384,7 +397,7 @@ URL: https://code.google.com/p/io-2012-slides
           <ul>
             <li>Équilibrage de charge inégale</li>
             <li>
-              Si un host est indispo, il faut une action manuel 
+              Si un host est indispo, il faut une action manuel
               pour le retirer du round robin et attendre le TTL
             </li>
           </ul>
@@ -392,7 +405,7 @@ URL: https://code.google.com/p/io-2012-slides
       </ul>
     </article>
   </slide>
-  
+
   <!-- Technologies retenues : infrastructure as code -->
   <slide>
     <hgroup>
@@ -403,15 +416,15 @@ URL: https://code.google.com/p/io-2012-slides
       <h3>Puppet</h3>
       <!--
       <p>
-        Puppet est un outil de gestion de configuration qui permet de mettre à jour de façon automatisée 
-        et selon un scénario prédéfini un ensemble de serveurs. 
+        Puppet est un outil de gestion de configuration qui permet de mettre à jour de façon automatisée
+        et selon un scénario prédéfini un ensemble de serveurs.
         L'idée est de décrire l’état désiré du serveur et Puppet se chargera de réaliser les actions nécessaires pour y parvenir.
         Puppet est écrit en Ruby, sous licence Apache. Basé sur une architecture client/serveur, il est multi-plateforme.
       </p>
       -->
     </article>
   </slide>
-  
+
   <!-- Technologies retenues : infrastructure as code -->
   <slide>
     <hgroup>
@@ -432,7 +445,7 @@ URL: https://code.google.com/p/io-2012-slides
       </h4>
     </article>
   </slide>
-  
+
   <!-- Technologies retenues : infrastructure as code, exemple de module -->
   <slide>
     <hgroup>
@@ -446,13 +459,13 @@ URL: https://code.google.com/p/io-2012-slides
         package { 'nginx-full':
           ensure  => 'installed',
         }
-        
+
         service { 'nginx':
           ensure  => running,
           enable  => true,
           require => Package['nginx-full'];
         }
-        
+
         file { '/etc/nginx/nginx.conf':
           ensure  => 'file',
           content => template('tom_static/etc/nginx/nginx.conf.erb'),
@@ -464,7 +477,7 @@ URL: https://code.google.com/p/io-2012-slides
       </pre>
     </article>
   </slide>
-  
+
   <!-- Technologies retenues : Puppet roles -->
   <slide>
     <hgroup>
@@ -474,19 +487,19 @@ URL: https://code.google.com/p/io-2012-slides
     <article class="smaller">
       <pre class="prettyprint" data-lang="ruby">
       # File /etc/puppet/manifests/site.pp
-      
+
       # All
       node default {
         include init_host, sysctl_tuning, rsyslog, munin, nagios
       }
-      
+
       # DB
       node '/^db\d+\.optin-machine\.fr$/' {
         class { 'couchdb':
           bind => '0.0.0.0',
         }
       }
-      
+
       # Statics
       node '/^static\d+\.optin-machine\.fr$/' {
         include tom_static
@@ -494,7 +507,7 @@ URL: https://code.google.com/p/io-2012-slides
       </pre>
     </article>
   </slide>
-  
+
   <!-- Technologies retenues : Environnement "Production like" -->
   <slide>
     <hgroup>
@@ -503,7 +516,7 @@ URL: https://code.google.com/p/io-2012-slides
     </hgroup>
     <article id="vagrant">
       <h4>
-        Création et configuration d'environnement 
+        Création et configuration d'environnement
         de développement reproductible et portable.
       </h4>
       </br />
@@ -512,13 +525,13 @@ URL: https://code.google.com/p/io-2012-slides
         <li><a href="http://www.virtualbox.org/">Oracle’s VirtualBox</a></li>
         <li>Ruby 1.8 +</li>
         <li>
-          <a href="http://vagrantup.com/">Vagrant</a> : 
+          <a href="http://vagrantup.com/">Vagrant</a> :
           <code>gem install vagrant</code>
         </li>
       </ul>
     </article>
   </slide>
-  
+
   <!-- Technologies retenues : Environnement "Production like" -->
   <slide>
     <hgroup>
@@ -527,7 +540,7 @@ URL: https://code.google.com/p/io-2012-slides
     </hgroup>
     <article class="smaller">
       <pre class="prettyprint" data-lang="ruby">
-      # Vagrantfile 
+      # Vagrantfile
       # exemple : https://github.com/Benjamin-Ds/puppet-module-couchdb/blob/master/Vagrantfile
       Vagrant::Config.run do |config|
         config.vm.box = "squeeze64"
@@ -550,7 +563,7 @@ URL: https://code.google.com/p/io-2012-slides
       </pre>
     </article>
   </slide>
-  
+
   <slide>
     <hgroup>
       <h2>Technologies retenues</h2>
@@ -558,22 +571,22 @@ URL: https://code.google.com/p/io-2012-slides
     </hgroup>
     <article>
       <pre class="prettyprint" data-lang="shell">
-      git clone git://github.com/Benjamin-Ds/test-couchdb-elasticsearch.git 
+      git clone git://github.com/Benjamin-Ds/test-couchdb-elasticsearch.git
       cd test-couchdb-elasticsearch
       git submodule update --init
-      vagrant up        
+      vagrant up
       # work [...]
-      vagrant destroy   
+      vagrant destroy
       </pre>
       <footer class="source">
-        Source sur Github : 
+        Source sur Github :
         <a href="https://github.com/Benjamin-Ds/test-couchdb-elasticsearch.git">
           Elasticsearch + CouchDB
         </a>
       </footer>
     </article>
   </slide>
-  
+
   <slide>
     <hgroup>
       <h2>Technologies retenues</h2>
@@ -583,7 +596,7 @@ URL: https://code.google.com/p/io-2012-slides
       <iframe border="0" height="437" scrolling="no" data-src="http://shelr.tv/records/4f881a61966080020e000001/embed" style="border: 0" width="668"></iframe>
     </article>
   </slide>
-    
+
   <!-- Technologies retenues : orchestration -->
   <slide>
     <hgroup>
@@ -592,12 +605,12 @@ URL: https://code.google.com/p/io-2012-slides
     </hgroup>
     <article>
       <q>
-        Fabric is a Python (2.5 or higher) library and command-line tool for streamlining 
+        Fabric is a Python (2.5 or higher) library and command-line tool for streamlining
         the use of SSH for application deployment or systems administration tasks.
       </q>
     </article>
   </slide>
-  
+
   <!-- Technologies retenues : orchestration -->
   <slide>
     <hgroup>
@@ -614,18 +627,18 @@ URL: https://code.google.com/p/io-2012-slides
       <pre class="prettyprint" data-lang="shell">
       # Configuration/mise à niveau 'manuel' de 'db01.optin-machine.fr' avec Puppet
       fab -H db01.optin-machine.fr configure:modules='couchdb,munin,nagios'
-      
+
       # Configuration en se référant au fichier 'site.pp' pour déterminer les modules à appliquer
       fab -H db01.optin-machine.fr configure:site='/etc/puppet/manifests/site.pp'
-      
+
       # Déployer du code depuis le SCM
-      fab -H front01.domain.tld -A \ 
+      fab -H front01.domain.tld -A \
       deploy:repo='git@github.com:ArthurMediaGroup/www.programma-tv.com.git', \
       dest='/home/http/www.programma-tv.com'
       </pre>
     </article>
   </slide>
-  
+
   <!-- Technologies retenues : orchestration -->
   <slide>
     <hgroup>
@@ -633,7 +646,7 @@ URL: https://code.google.com/p/io-2012-slides
       <h3>Orchestration / déploiement des serveurs avec Fabric</h3>
     </hgroup>
     <article>
-      <pre class="prettyprint" data-lang="python">      
+      <pre class="prettyprint" data-lang="python">
       def puppet_apply(module='', args='', options='--modulepath /etc/puppet/modules'):
           """
           Apply Puppet module
@@ -649,7 +662,7 @@ URL: https://code.google.com/p/io-2012-slides
       </pre>
     </article>
   </slide>
-  
+
   <!-- Technologies retenues : Superivion : monitoring actif avec Nagios -->
   <slide>
     <hgroup>
@@ -661,7 +674,7 @@ URL: https://code.google.com/p/io-2012-slides
       <footer class="source">Monitoring actif des services avec Nagios</footer>
     </article>
   </slide>
-  
+
   <!-- Technologies retenues : Superivion : graphs avec Munin -->
   <slide>
     <hgroup>
@@ -676,7 +689,7 @@ URL: https://code.google.com/p/io-2012-slides
       <div class="centered"><img src="images/nginx_requests-day.png" alt="nginx requests" /></div>
     </article>
   </slide>
-  
+
   <!-- Technologies retenues : Superivion : graphs avec Munin -->
   <slide>
     <hgroup>
@@ -694,7 +707,7 @@ URL: https://code.google.com/p/io-2012-slides
       </footer>
     </article>
   </slide>
-  
+
   <slide>
     <hgroup>
       <h2>Code Slide (with Subtitle Placeholder)</h2>
@@ -980,9 +993,9 @@ URL: https://code.google.com/p/io-2012-slides
   </slide>
 
   <slide class="thank-you-slide segue nobackground">
-    <aside class="gdbar right"><img src="images/google_developers_icon_128.png"></aside>
+    <!--<aside class="gdbar right"><img src="images/google_developers_icon_128.png"></aside>-->
     <article class="flexbox vleft auto-fadein">
-      <h2>&lt;Thank You!&gt;</h2>
+      <h2>&lt;Merci !&gt;</h2>
       <p>Important contact information goes here.</p>
     </article>
     <p class="auto-fadein" data-config-contact>
