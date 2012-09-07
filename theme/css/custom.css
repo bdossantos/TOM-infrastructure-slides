@@ -38,6 +38,9 @@
   min-height: 410px;
 }
 
-#vagrantup_shellr {
-  /*height: 400px;*/
+#vagrantup_shellr iframe {
+  /*width: 668px;
+  height: 400px;
+  margin: 0 auto;
+  display: block;*/
 }
