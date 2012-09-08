@@ -674,7 +674,7 @@ URL: https://code.google.com/p/io-2012-slides
               options += ' --logdest console --logdest syslog'
               run("puppet apply -e 'include %(module)s %(args)s' %(options)s" % locals())
           else:
-              print(red('Module name required !'))
+              abort(red('Module name required !'))
       </pre>
     </article>
   </slide>
@@ -721,6 +721,68 @@ URL: https://code.google.com/p/io-2012-slides
       <footer class="source">
         Source :<a href="https://papertrailapp.com/">Papertrail</a>
       </footer>
+    </article>
+  </slide>
+
+  <!-- Déploiement -->
+  <slide>
+    <hgroup>
+      <h2>Déploiement</h2>
+      <h3>Hardware</h3>
+    </hgroup>
+    <article>
+      <h4>
+        Serveurs dédiés <a hrf="http://www.ovh.com">OVH</a>
+      </h4><br />
+      <ul>
+        <li>DB :
+          <ul>
+            <li>
+              4 *
+              <a href="http://www.ovh.com/fr/serveurs_dedies/superplan_best_of.xml">
+                SP Best Of
+              </a>
+            </li>
+          </ul>
+        </li>
+        <li>
+          Tracking :
+          <ul>
+            <li>
+              2 *
+              <a href="http://www.ovh.com/fr/serveurs_dedies/superplan_ssd.xml">
+                SP SSD
+              </a>
+            </li>
+          </ul>
+        </li>
+        <li>
+          Front :
+          <ul>
+            <li>
+              2 *
+              <a href="http://www.ovh.com/fr/serveurs_dedies/superplan_best_of.xml">
+                SP Best OF
+              </a>
+            </li>
+          </ul>
+        </li>
+        <li>
+          Statique :
+          <ul>
+            <li>
+              4 *
+              <a href="http://www.ovh.com/fr/serveurs_dedies/superplan_mini.xml">
+                SP Mini
+              </a>
+            </li>
+            <li>
+              1 *
+              <a href="http://www.ovh.com/fr/nas/">NAS Hybride HA</a>
+            </li>
+          </ul>
+        </li>
+      </ul>
     </article>
   </slide>
 
