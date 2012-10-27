@@ -9,7 +9,7 @@ URL: https://code.google.com/p/io-2012-slides
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Google IO 2012</title>
+  <title>Refonte de l'infrastructure "The Optin Machine"</title>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="chrome=1">
   <!--<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">-->
@@ -36,7 +36,9 @@ URL: https://code.google.com/p/io-2012-slides
   -->
 
   <slide class="title-slide segue nobackground">
-    <!--<aside class="gdbar"><img src="images/google_developers_icon_128.png"></aside>-->
+    <aside class="gdbar">
+      <img src="images/google_developers_icon_128.png" />
+    </aside>
     <!-- The content of this hgroup is replaced programmatically through the slide_config.json. -->
     <hgroup class="auto-fadein">
       <!-- populated from slide_config.json -->
@@ -46,59 +48,100 @@ URL: https://code.google.com/p/io-2012-slides
     </hgroup>
   </slide>
 
+  <slide class="nobackground centered">
+    <hgroup class="flexbox vcenter auto-fadein">
+      <h1 id="main-title">
+        Refonte de l'infrastructure<br />
+        "The Optin Machine"
+      </h1>
+    </hgroup>
+  </slide>
+
+  <!-- Qui ? -->
+  <slide>
+    <hgroup>
+      <h2>Qui ?</h2>
+    </hgroup>
+    <article>
+      <h3>Benjamin Dos Santos</h3><br/>
+      <ul>
+        <li>Administrateur système chez <a href="#">Arthur Media Group</a></li>
+        <li>Développeur Web</li>
+      </ul>
+    </article>
+  </slide>
+
   <!-- Présentation AMG -->
   <slide>
+    <!-- note -->
+    <aside class="note">
+      <section>
+        Arthur Media Group est une société e-marketing d’une cinquantaine de
+        collaborateurs regroupant plusieurs start-up aux activités diverses sur
+        Internet
+      </section>
+    </aside>
+
     <hgroup>
       <h2>Arthur Media Group</h2>
     </hgroup>
     <article id="amg">
+      <h3>Régies :</h3><br/>
       <ul>
         <li><b style="color:#234E74;">P comme Performance</b></li>
         <li><b style="color:#D20D0D;">Mails &amp; Brands</b></li>
-        <li><b style="color:#A80F3F;">Welcome Media</b></li>
+      </ul>
+
+      <h3>Collecte :</h3><br/>
+      <ul>
         <li><b style="color:#F68E03;">The Optin Machine</b></li>
       </ul>
-      <!--
-      <table border="0">
-        <tr>
-          <th>Monétisation</th>
-          <th>Collecte</th>
-          <th>Location</th>
-        </tr>
-        <tr>
-          <td>
-            <b style="color:#234E74;">P comme Performance</b><br/>
-            <b style="color:#D20D0D;">Mails &amp; Brands</b>
-          </td>
-          <td><b style="color:#F68E03;">The Optin Machine</b></td>
-          <td><b style="color:#A80F3F;">Welcome Media</b></td>
-        </tr>
-      </table>
-      -->
+
+      <h3>Éditeur :</h3><br/>
+      <ul>
+        <li><b style="color:#A80F3F;">Welcome Media</b></li>
+      </ul>
+      <!--<img src="images/AMG_schema.png" alt="" width="522" height="250" />-->
     </article>
   </slide>
 
   <!-- Présentation PCP -->
   <slide>
+    <!-- note -->
+    <aside class="note">
+      <section>
+        Régies qui hébergent des bases de
+        données e-mail clients et les rentabilise.
+
+        Grâce à des outils de ciblage et en partenariat avec les principales
+        plateformes d’affiliation, P comme Performance et Mails &amp; Brands
+        réalisent des opérations de recrutement de nouveaux prospects qualifiés
+        ainsi que des ventes directes.
+
+        <b>clients :</b>
+        <ul>
+          <li>
+            Groupe Prisma Presse : Cuisine Actuelle, Femme Actuelle, Voici,
+            Capital, Geo, Tele loisirs
+          </li>
+        </ul>
+      </section>
+    </aside>
+
     <hgroup>
       <h2>P comme Performance</h2>
+      <h3>Régie publicitaire e-mail à la performance</h3>
     </hgroup>
     <article>
       <ul>
-        <li>
-          Régie qui héberge des bases de données
-          clients et les rentabilise
-          <ul>
-            <li>
-              Groupe Prisma Press, Groupe Webedia, Météo France, UGC ...
-            </i>
-          </ul>
-        <li>
         <li>5.5 millions de clics par mois</li>
         <li>1 million d’ouvertures par jour sur les newsletters.</li>
         <li>4 millions de clics par mois</li>
         <li>750 000 ouvertures par jour sur les envois dédiés.</li>
         <li>1000 campagnes en 2010</li>
+        <li>
+          Clients : Groupe Prisma Press, Groupe Webedia, Météo France, UGC ...
+        </li>
       </ul>
     </article>
   </slide>
@@ -107,13 +150,10 @@ URL: https://code.google.com/p/io-2012-slides
   <slide>
     <hgroup>
       <h2>Mails &amp; Brands</h2>
+      <h3>Régie publicitaire e-mail à la performance</h3>
     </hgroup>
     <article id="mnb">
       <ul>
-        <li>
-          Même activité que <b style="color:#234E74;">P Comme Performance</b>,
-          à l'international
-        </li>
         <li>30 collaborateurs, 7 langues, 12 pays</li>
         <li>53 bases gérées : 23 M&amp;B + 30 PCP</li>
         <li>53 millions de profils</li>
@@ -129,15 +169,32 @@ URL: https://code.google.com/p/io-2012-slides
 
   <!-- Présentation WM -->
   <slide>
+    <!-- note -->
+    <aside class="note">
+      <section>
+        Welcome Media se consacre à la création de newsletters et sites
+        thématiques. Les thèmes : Télé, météo, ventes privées, actualité insolite,
+        applications mobiles..
+
+        Présence en France, Italie et Espagne
+      </section>
+    </aside>
+
     <hgroup>
       <h2>Welcome Media</h2>
+      <h3>Éditeur</h3>
     </hgroup>
     <article id="wm">
       <ul>
-        <li>Génération de Traffic Nielsen, Cliques, Lead</li>
+        <li>Génération de Trafic Nielsen, Cliques, Lead</li>
         <li>Édition de site web :
           <ul>
-            <li>Programmi-TV, Programmacion-TV, Daily Geek Show ...</li>
+            <li>
+               <a href="http://www.programmi-tv.com">Programmi TV</a>,
+               <a href="http://dailygeekshow.com/">Daily geek show</a>,
+               <a href="http://www.programacion-tv.es/">Programación-TV</a>,
+               <a href="http://www.application-du-jour.com/">Application du jour</a>
+            </li>
           </ul>
         </li>
         <li>Édition de Newletters :
@@ -157,6 +214,7 @@ URL: https://code.google.com/p/io-2012-slides
   <slide>
     <hgroup>
       <h2>The Optin Machine</h2>
+      <h3>Collecte</h3>
     </hgroup>
     <article id="tom">
       <ul>
@@ -193,41 +251,38 @@ URL: https://code.google.com/p/io-2012-slides
     </article>
   </slide>
 
-  <!-- Présentation de l'existant -->
-  <slide>
-    <hgroup>
-      <h2>L'existant</h2>
-    </hgroup>
-    <article>
-      <b class="centered"></b>
-      <ul>
-        <li>1 serveur d'application (Apache, PHP ...)
-          <ul>
-            <li>Jeux, Overlays ...</li>
-            <li>Tracking</li>
-          </ul>
-        </li>
-        <li>Base de données MySQL :
-          <ul>
-            <li>
-              1 Maître pour l'écriture
-            </li>
-            <li>
-              1 Esclave pour la lecture
-            </li>
-          </ul>
-        </li>
-        <li>Serveurs statiques
-          <ul>
-            <li>2 Lighttpd derrière un Round Robin pour l'équilibrage de charge</li>
-          </ul>
-        </li>
-      </ul>
-    </article>
-  </slide>
-
   <!-- Présentation de l'existant, schéma -->
   <slide>
+    <!-- note -->
+    <aside class="note">
+      <section>
+        <ul>
+          <li>1 * Serveur d'application (Apache, PHP ...)
+            <ul>
+              <li>Jeux, Overlays ...</li>
+              <li>Tracking</li>
+            </ul>
+          </li>
+          <li>1 * Serveur de Tracking</li>
+          <li>2 * Base de données MySQL :
+            <ul>
+              <li>
+                1 * Maître pour l'écriture
+              </li>
+              <li>
+                1 * Esclave pour la lecture
+              </li>
+            </ul>
+          </li>
+          <li>4 * Serveurs statiques
+            <ul>
+              <li>Round Robin pour l'équilibrage de charge</li>
+            </ul>
+          </li>
+        </ul>
+      </section>
+    </aside>
+
     <hgroup>
       <h2>L'existant</h2>
     </hgroup>
@@ -239,7 +294,7 @@ URL: https://code.google.com/p/io-2012-slides
     </article>
   </slide>
 
-  <!-- Les limites de l'existant -->
+  <!-- Les limites de l'existant : HA -->
   <slide>
     <hgroup>
       <h2>Limites / Inconvénients</h2>
@@ -255,6 +310,15 @@ URL: https://code.google.com/p/io-2012-slides
         </li>
         </li>
       </ul>
+    </article>
+  </slide>
+
+  <!-- Les limites de l'existant : DB -->
+  <slide>
+    <hgroup>
+      <h2>Limites / Inconvénients</h2>
+    </hgroup>
+    <article>
       <h3 class="red">Conception de la base de données :</h3><br />
       <ul>
         <li>Champs incorrectement typé</li>
@@ -270,7 +334,7 @@ URL: https://code.google.com/p/io-2012-slides
     </article>
   </slide>
 
-  <!-- Les limites de l'existant -->
+  <!-- Les limites de l'existant : Operations -->
   <slide>
     <hgroup>
       <h2>Limites / Inconvénients</h2>
@@ -293,7 +357,7 @@ URL: https://code.google.com/p/io-2012-slides
     </article>
   </slide>
 
-  <!-- Les limites de l'existant -->
+  <!-- Les limites de l'existant : Tracking -->
   <slide>
     <hgroup>
       <h2>Limites / Inconvénients</h2>
@@ -345,7 +409,7 @@ URL: https://code.google.com/p/io-2012-slides
       </ul>
     </article>
   </slide>
-  
+
   <!-- schema current archi -->
   <!--
   <slide>
@@ -788,7 +852,9 @@ URL: https://code.google.com/p/io-2012-slides
             </li>
             <li>
               1 *
-              <a href="http://www.ovh.com/fr/nas/">NAS Hybride HA</a>
+              <a href="http://www.ovh.com/fr/nas/stockages_NAS_HA_Hybrid.xml">
+                NAS Hybride HA
+              </a>
             </li>
           </ul>
         </li>
