@@ -1,3 +1,10 @@
+#main-title {
+  font-size: 65px;
+  line-height: 1.4;
+  letter-spacing: -3px;
+  color: #515151;
+}
+
 #amg {
   background: transparent url('../../images/amg.jpg') no-repeat bottom right;
   min-height: 70%;
