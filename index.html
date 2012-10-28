@@ -9,7 +9,7 @@ URL: https://code.google.com/p/io-2012-slides
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Benjamin Dos Santos : Refonte de l'infrastructure "The Optin Machine"</title>
+  <title>Refonte de l'infrastructure "The Optin Machine" // Benjamin Dos Santos</title>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="chrome=1">
   <!--<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">-->
@@ -28,39 +28,32 @@ URL: https://code.google.com/p/io-2012-slides
 <slides class="layout-widescreen">
 
   <!--
-  <slide class="logoslide nobackground">
-    <article class="flexbox vcenter">
-      <span><img src="images/google_developers_logo.png"></span>
-    </article>
-  </slide>
-  -->
-
   <slide class="title-slide segue nobackground">
     <aside class="gdbar">
       <img src="images/google_developers_icon_128.png" />
     </aside>
-    <!-- The content of this hgroup is replaced programmatically through the slide_config.json. -->
     <hgroup class="auto-fadein">
-      <!-- populated from slide_config.json -->
       <h1 data-config-title></h1>
       <h2 data-config-subtitle></h2>
       <p data-config-presenter></p>
     </hgroup>
   </slide>
+  -->
 
-  <slide class="nobackground" id="home">
-    <article class="auto-fadein">
+  <slide class="title-slide nobackground" id="home">
       <hgroup>
         <h1 id="main-title" class="centered">
           Refonte de l'infrastructure<br />
           "The Optin Machine"
         </h1>
       </hgroup>
-      <footer class="source">
-        Benjamin Dos Santos<br />
-        Admin Sys, Arthur Media Group
+      <footer class="auto-fadein">
+        <!--
+        <h1 data-config-title></h1>
+        <h2 data-config-subtitle></h2>
+        -->
+        <p data-config-presenter></p>
       </footer>
-    </article>
   </slide>
 
   <!-- Qui ? -->
@@ -93,9 +86,9 @@ URL: https://code.google.com/p/io-2012-slides
     <!-- note -->
     <aside class="note">
       <section>
-        Arthur Media Group est une société e-marketing d'une cinquantaine de
+        <p>Arthur Media Group est une société e-marketing d'une cinquantaine de
         collaborateurs regroupant plusieurs start-up aux activités diverses sur
-        Internet
+        Internet</p>
       </section>
     </aside>
 
@@ -128,13 +121,13 @@ URL: https://code.google.com/p/io-2012-slides
     <!-- note -->
     <aside class="note">
       <section>
-        Régies qui hébergent des bases de
-        données e-mail clients et les rentabilise.
+        <p>Régies qui hébergent des bases de
+        données e-mail clients et les rentabilise.</p>
 
-        Grâce à des outils de ciblage et en partenariat avec les principales
+        <p>Grâce à des outils de ciblage et en partenariat avec les principales
         plateformes d'affiliation, P comme Performance et Mails &amp; Brands
         réalisent des opérations de recrutement de nouveaux prospects qualifiés
-        ainsi que des ventes directes.
+        ainsi que des ventes directes.</p>
 
         <b>clients :</b>
         <ul>
@@ -147,40 +140,22 @@ URL: https://code.google.com/p/io-2012-slides
     </aside>
 
     <hgroup>
-      <h2>P comme Performance</h2>
-      <h3>Régie publicitaire e-mail à la performance</h3>
+      <h2>P comme Performance / Mails &amp; Brands</h2>
+      <h3>Régies publicitaires e-mail à la performance</h3>
     </hgroup>
-    <article id="pcp">
-      <ul>
-        <li>5.5 millions de clics par mois</li>
-        <li>1 million d'ouvertures par jour sur les newsletters.</li>
-        <li>4 millions de clics par mois</li>
-        <li>750 000 ouvertures par jour sur les envois dédiés.</li>
-        <li>1000 campagnes en 2010</li>
-        <li>
-          Clients : Groupe Prisma Press, Groupe Webedia, Météo France, UGC ...
-        </li>
-      </ul>
-    </article>
-  </slide>
-
-  <!-- Présentation M&B -->
-  <slide>
-    <hgroup>
-      <h2>Mails &amp; Brands</h2>
-      <h3>Régie publicitaire e-mail à la performance</h3>
-    </hgroup>
-    <article id="mnb">
+    <article id="pcp_mnb">
       <ul>
         <li>30 collaborateurs, 7 langues, 12 pays</li>
         <li>53 bases gérées : 23 M&amp;B + 30 PCP</li>
         <li>53 millions de profils</li>
         <li>2400 campagnes envoyées par mois</li>
         <li>
-          70 millions de mails envoyés par mois dont
-          112 M de mails envoyés sur M&amp;B par mois
+          112M++ de mails envoyés sur M&amp;B par mois
         </li>
-        <li>20 millions de clics par mois</li>
+        <li>20M++ de clics par mois</li>
+        <li>
+          Clients : Groupe Prisma Press, Groupe Webedia, Météo France, UGC ...
+        </li>
       </ul>
     </article>
   </slide>
@@ -190,11 +165,11 @@ URL: https://code.google.com/p/io-2012-slides
     <!-- note -->
     <aside class="note">
       <section>
-        Welcome Media se consacre à la création de newsletters et sites
+        <p>Welcome Media se consacre à la création de newsletters et sites
         thématiques. Les thèmes : Télé, météo, ventes privées, actualité insolite,
-        applications mobiles..
+        applications mobiles..</p>
 
-        Présence en France, Italie et Espagne
+        <p>Présence en France, Italie et Espagne</p>
       </section>
     </aside>
 
@@ -230,6 +205,35 @@ URL: https://code.google.com/p/io-2012-slides
 
   <!-- Présentation TOM -->
   <slide>
+    <!-- note -->
+    <aside class="note">
+      <section>
+        <p>TOM est une société spécialisée dans la création de
+        solutions dédiées afin de construire de nouveaux actifs clients.</p>
+        <br />
+        <ul>
+          <li>
+            Outils clés en mains pour collecter des profils : overlay, outils
+            de recommandation, etc ...
+          </li>
+          <li>
+            Technologie de jeux-concours pour réduire les coûts et accélérer les
+            temps de lancement
+          </li>
+          <li>
+            Expertise d’association de marques pour réduire les coûts de
+            collecte
+          </li>
+          <li>
+            Technologie d’enquête à vocation de collecte de données
+            (ex : Grande enquête sur la santé des femmes)
+          </li>
+          <li>Technologie de mini-sites spécialisés en collecte </li>
+          <li>Outils de monétisations d’audience : coregistration, overlay etc .</li>
+        </ul>
+      </section>
+    </aside>
+
     <hgroup>
       <h2>The Optin Machine</h2>
       <h3>Collecte</h3>
@@ -245,17 +249,34 @@ URL: https://code.google.com/p/io-2012-slides
       </ul>
     </article>
   </slide>
-  
+
   <!-- Quoi -->
   <slide>
+    <!-- note -->
+    <aside class="note">
+      <section>
+        <p>Courant 2011, l’infrastructure de la société The Optin Machine a démontré
+        des problèmes de performance et de disponibilité.</p>
+
+        <p>Afin de développer l’activité il a été décidé de refondre et moderniser
+        cette dernière pour permettre de :</p>
+        <br />
+        <ul>
+          <li>augmenter les diffusions</li>
+          <li>augmenter la capacité de collecte</li>
+          <li>diversifier les supports de collecte : enquêtes</li>
+        </ul>
+      </section>
+    </aside>
+
     <hgroup>
       <h2>Mon rôle chez Arthur Media</h2>
     </hgroup>
     <article>
       <ul>
-        <li>Gestion des infrastructures des entités du groupe</li>
+        <li>Déploiement et administration des infrastructures du groupe</li>
         <li>Mise en place d’infrastructures haute disponibilité</li>
-        <li>Déploiement d’outils de supervision</li>
+        <li>Déploiement d'outils de supervision</li>
         <li>Intégration de bonnes pratiques comme infrastructure as code et DevOps</li>
       </ul>
     </article>
@@ -406,7 +427,7 @@ URL: https://code.google.com/p/io-2012-slides
       <h2>Objectifs de la refonte</h2>
     </hgroup>
     <article>
-      <ul class="no_bullet">
+      <ul class="no_bullet build">
         <li><h3>- Améliorer la disponibilité de l'infrastructure</h3></li>
         <li><h3>- Gestion des configurations</h3></li>
         <li><h3>- Orchestration des serveurs</h3></li>
@@ -463,6 +484,21 @@ URL: https://code.google.com/p/io-2012-slides
     </article>
   </slide>
 
+  <!-- Technologies retenues : statiques -->
+  <slide>
+    <hgroup>
+      <h2>Technologies retenues</h2>
+      <h3>Serveurs statiques</h3>
+    </hgroup>
+    <article id="statiques">
+      <ul>
+        <li><strong>Nginx</strong></li>
+        <li><strong>NAS</strong> haute disponibilité</li>
+        <li><strong>Load balancing</strong> via <strong>Weighted round robin</strong></li>
+      </ul>
+    </article>
+  </slide>
+
   <!-- Technologies retenues : DB -->
   <slide>
     <hgroup>
@@ -485,14 +521,11 @@ URL: https://code.google.com/p/io-2012-slides
       <h2>Technologies retenues</h2>
       <h3>Supports de collectes</h3>
     </hgroup>
-    <article>
+    <article id="collecte">
       <ul>
-        <li>Jeux en HTML pur + Javascript
-          <ul>
-            <li>Librairie Javascript qui génère le jeux à partir d'un fichier de configuration en JSON</li>
-          </ul>
-        </li>
-        <li>Enregistrement des données via POST/Requêtes Ajax sur nos frontaux PHP</li>
+        <li><strong>Nginx</strong> : serveur web en frontal</li>
+        <li><strong>PHP-FPM</strong> : traitement des requêtes avec PHP</li>
+        <li><strong>REST</strong> : enregistrement des données sur CouchDB avec CURL</li>
       </ul>
     </article>
   </slide>
@@ -508,22 +541,7 @@ URL: https://code.google.com/p/io-2012-slides
         <li><strong>Nginx</strong> : serveur web en frontal</li>
         <li><strong>PHP-FPM</strong> : traitement des requêtes dynamiques</li>
         <li><strong>Redis</strong> : enregistrement des affichages et cliques</li>
-        <li><strong>REST</strong> : agrégation des statistiques par noeud</li>
-      </ul>
-    </article>
-  </slide>
-
-  <!-- Technologies retenues : statiques -->
-  <slide>
-    <hgroup>
-      <h2>Technologies retenues</h2>
-      <h3>Serveurs statiques</h3>
-    </hgroup>
-    <article id="statiques">
-      <ul>
-        <li>Migration vers <strong>Nginx</strong></li>
-        <li><strong>NAS</strong> haute disponibilité</li>
-        <li><strong>Load balancing</strong> via <strong>Weighted round robin</strong></li>
+        <li><strong>REST</strong> : agrégation des statistiques de chaque noeud</li>
       </ul>
     </article>
   </slide>
@@ -687,7 +705,7 @@ URL: https://code.google.com/p/io-2012-slides
   <slide>
     <hgroup>
       <h2>Technologies retenues</h2>
-      <h3>Orchestration / déploiement des serveurs avec Fabric</h3>
+      <h3>Orchestration des serveurs / déploiements avec Fabric</h3>
     </hgroup>
     <article id="python">
       <q>
@@ -856,12 +874,12 @@ URL: https://code.google.com/p/io-2012-slides
     </hgroup>
     <article>
       <ul>
-        <li>La configuration de toutes les machines standardisée</li>
-        <li>Toutes les configurations sont sous contrôle de version</li>
+        <li>La configuration de toutes les machines est standardisée</li>
+        <li>Les configurations sont sous contrôle de version</li>
         <li>L'administration de l'infrastructure est centralisée</li>
         <li>Les déploiements sont facilités et automatisés</li>
-        <li>L'infrastructure est haute disponibilité</li>
-        <li>L'infrastructure est Scalable horizontalement</li>
+        <li>Cette infrastructure est <strong>haute disponibilité</strong> et <strong>Scalable</strong> horizontalement</li>
+        <li>En production depuis septembre 2011</li>
       </ul>
     </article>
   </slide>
@@ -876,6 +894,7 @@ URL: https://code.google.com/p/io-2012-slides
       <ul>
         <li>Instabilités CouchDB</li>
         <li>Formation sur le tas à des nouvelles technologies : nosql etc ...</li>
+        <li>Délais de réalisation court</li>
       </ul>
     </article>
   </slide>
@@ -885,7 +904,7 @@ URL: https://code.google.com/p/io-2012-slides
     <hgroup>
       <h2>Perspectives</h2>
     </hgroup>
-    <article>
+    <article id="cloud">
       <h3>Le cloud publique</h3>
       <br />
       <ul>
