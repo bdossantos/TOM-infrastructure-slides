@@ -5,24 +5,49 @@
   color: #515151;
 }
 
+ul.no_bullet {
+  margin-left: 0;
+}
+
+ul.no_bullet > li::before {
+  content: '';
+}
+
+img.centered {
+  display:block;
+  margin: 0 auto;
+}
+
+strong {
+  font-weight: bold;
+  color: #000;
+  color: #515151;
+}
+
 #amg {
   background: transparent url('../../images/amg.jpg') no-repeat bottom right;
-  min-height: 70%;
+  min-height: 75%;
 }
+
+#pcp {
+  background: transparent url('../../images/pcommeperformance.jpg') no-repeat bottom right;
+  min-height: 65%;
+}
+
 
 #mnb {
   background: transparent url('../../images/mnb.png') no-repeat bottom right;
-  min-height: 70%;
+  min-height: 65%;
 }
 
 #wm {
   background: transparent url('../../images/welcomemedia.jpg') no-repeat bottom right;
-  min-height: 70%;
+  min-height: 65%;
 }
 
 #tom {
   background: transparent url('../../images/optinmachine.jpg') no-repeat bottom right;
-  min-height: 70%;
+  min-height: 65%;
 }
 
 #couchdb {
@@ -30,9 +55,11 @@
   min-height: 400px;
 }
 
-#puppet {
-  background: transparent url('../../images/puppet.png') no-repeat bottom right;
-  min-height: 400px;
+#configs {
+  background-image: url('../../images/puppet.png'), url('../../images/git.png');
+  background-position: 82% 102%, 100% 100%;
+  background-repeat: no-repeat;
+  min-height: 65%;
 }
 
 #octocat {
@@ -50,4 +77,30 @@
   height: 400px;
   margin: 0 auto;
   display: block;*/
+}
+
+#tracking {
+  background-image: url('../../images/nginx.png'), url('../../images/php_logo.png'), url('../../images/redis.png');
+  background-position: 72% 100%, 85% 102%, 100% 100%;
+  background-repeat: no-repeat;
+  min-height: 65%;
+}
+
+#statiques {
+  background: transparent url('../../images/nginx.png') no-repeat 100% 100% ;
+  min-height: 65%;
+}
+
+#python {
+  background: transparent url('../../images/python.png') no-repeat 100% 100% ;
+  min-height: 65%;
+}
+
+#ovh {
+  background: transparent url('../../images/ovh.jpg') no-repeat 100% 100% ;
+  min-height: 65%;
+}
+
+#current_infra {
+  margin-top: 20px;
 }
