@@ -255,7 +255,7 @@ URL: https://code.google.com/p/io-2012-slides
     <!-- note -->
     <aside class="note">
       <section>
-        <p>Courant 2011, l’infrastructure de la société The Optin Machine a démontré
+        <p>Courant 2011, l'infrastructure de la société The Optin Machine a démontré
         des problèmes de performance et de disponibilité.</p>
 
         <p>Afin de développer l’activité il a été décidé de refondre et moderniser
@@ -397,6 +397,8 @@ URL: https://code.google.com/p/io-2012-slides
             <li>Perte d'informations à cause des délais d'attente expirés</li>
           </ul>
         </li>
+        <li>Schéma inadapté aux nouveaux supports de collecte : enquêtes ...</li>
+        <li>Manque de souplesse du modèle relationnelle</li>
       </ul>
     </article>
   </slide>
@@ -409,11 +411,11 @@ URL: https://code.google.com/p/io-2012-slides
     <article>
       <h3 class="red">Opération sur la base de données :</h3><br />
       <ul>
-        <li>Répliquer nécessite de "lock" le maître ...</li>
+        <li>Répliquer nécessite de verrouiller le maître en écriture ...</li>
         <li>70 GO de données ...</li>
-        <li>Sauvegarde à chaud :
+        <li>Sauvegardes à chaud :
           <ul>
-            <li>MySQL Dump : long et lent à restaurer</li>
+            <li>MySQL Dump : long à effectuer, lent à restaurer</li>
             <li>Snapshot ? Nous n'utilisons (malheureusement) pas LVM, RDS etc ...</li>
           </ul>
         </li>
@@ -444,10 +446,15 @@ URL: https://code.google.com/p/io-2012-slides
     <article>
       <h4>Bases de données NoSQL orientées document :</h4><br/>
       <ul>
-        <li>MongoDB</li>
-        <li>CouchDB</li>
+        <li><strong>MongoDB</strong></li>
+        <li><strong>CouchDB</strong></li>
       </ul>
     </article>
+    <footer class="source">
+      <a href="http://www.mongodb.org/display/DOCS/Comparing+Mongo+DB+and+Couch+DB">
+        Comparing Mongo DB and CouchDB
+      </a>
+    </footer>
   </slide>
 
   <!-- Étude des solutions : Tracking -->
@@ -458,12 +465,12 @@ URL: https://code.google.com/p/io-2012-slides
     </hgroup>
     <article>
       <ul>
-        <li>Continuer avec Nodejs ?</li>
+        <li>Continuer avec <strong>Nodejs</strong> ?</li>
         <li>
           Logs vs bases de données clef-valeur distribuées :<br/>
           <ul>
-            <li>Redis</li>
-            <li>Memcached</li>
+            <li><strong>Redis</strong></li>
+            <li><strong>Memcached</strong></li>
           </ul>
         </li>
       </ul>
@@ -486,6 +493,28 @@ URL: https://code.google.com/p/io-2012-slides
 
   <!-- Technologies retenues : statiques -->
   <slide>
+    <!-- note -->
+    <aside class="note">
+      <section>
+        <p>
+          la technique du DNS Round-Robin (en français tourniquet)
+          consiste à associer plusieurs adresses IP à un nom de domaine.
+        </p>
+
+        <p>
+          Une rotation circulaire entre ces différentes adresses permet ainsi
+          de répartir la charge générée par ce trafic important entre les
+          différentes machines ayant ces adresses IP.
+        </p>
+        <p>
+          Il faut cependant nuancer
+          cette répartition car elle n'a lieu qu'à la résolution du nom d'hôte
+          et reste par la suite en cache sur les différents resolvers
+          (client DNS).
+        </p>
+      </section>
+    </aside>
+
     <hgroup>
       <h2>Technologies retenues</h2>
       <h3>Serveurs statiques</h3>
@@ -501,6 +530,13 @@ URL: https://code.google.com/p/io-2012-slides
 
   <!-- Technologies retenues : DB -->
   <slide>
+    <!-- note -->
+    <aside class="note">
+      <section>
+        
+      </section>
+    </aside>
+    
     <hgroup>
       <h2>Technologies retenues</h2>
       <h3>Base de données de collecte</h3>
@@ -517,6 +553,13 @@ URL: https://code.google.com/p/io-2012-slides
 
   <!-- Technologies retenues : Supports de collecte -->
   <slide>
+    <!-- note -->
+    <aside class="note">
+      <section>
+        
+      </section>
+    </aside>
+    
     <hgroup>
       <h2>Technologies retenues</h2>
       <h3>Supports de collectes</h3>
@@ -532,6 +575,13 @@ URL: https://code.google.com/p/io-2012-slides
 
   <!-- Technologies retenues : Tracking -->
   <slide>
+    <!-- note -->
+    <aside class="note">
+      <section>
+        
+      </section>
+    </aside>
+    
     <hgroup>
       <h2>Technologies retenues</h2>
       <h3>Tracking</h3>
@@ -548,6 +598,13 @@ URL: https://code.google.com/p/io-2012-slides
 
   <!-- Technologies retenues : infrastructure as code -->
   <slide>
+    <!-- note -->
+    <aside class="note">
+      <section>
+        
+      </section>
+    </aside>
+    
     <hgroup>
       <h2>Technologies retenues</h2>
       <h3>Gestion des configurations</h3>
@@ -571,6 +628,13 @@ URL: https://code.google.com/p/io-2012-slides
 
   <!-- Technologies retenues : infrastructure as code, exemple de module -->
   <slide>
+    <!-- note -->
+    <aside class="note">
+      <section>
+        
+      </section>
+    </aside>
+    
     <hgroup>
       <h2>Technologies retenues</h2>
       <h3>Gestion des configurations : extrait module</h3>
@@ -602,6 +666,13 @@ URL: https://code.google.com/p/io-2012-slides
 
   <!-- Technologies retenues : Puppet roles -->
   <slide>
+    <!-- note -->
+    <aside class="note">
+      <section>
+        
+      </section>
+    </aside>
+    
     <hgroup>
       <h2>Technologies retenues</h2>
       <h3>Classification des serveurs par rôle avec Puppet</h3>
@@ -615,6 +686,13 @@ URL: https://code.google.com/p/io-2012-slides
 
   <!-- Technologies retenues : Puppet roles -->
   <slide>
+    <!-- note -->
+    <aside class="note">
+      <section>
+        
+      </section>
+    </aside>
+    
     <hgroup>
       <h2>Technologies retenues</h2>
       <h3>Classification des serveurs par rôle avec Puppet</h3>
@@ -672,6 +750,13 @@ URL: https://code.google.com/p/io-2012-slides
 
   <!-- Technologies retenues : Environnement "Production like" -->
   <slide>
+    <!-- note -->
+    <aside class="note">
+      <section>
+        
+      </section>
+    </aside>
+    
     <hgroup>
       <h2>Technologies retenues</h2>
       <h3>Environnement "Production like" avec Virtualbox, Vagrant et Puppet</h3>
@@ -703,6 +788,13 @@ URL: https://code.google.com/p/io-2012-slides
 
   <!-- Technologies retenues : orchestration -->
   <slide>
+    <!-- note -->
+    <aside class="note">
+      <section>
+        
+      </section>
+    </aside>
+    
     <hgroup>
       <h2>Technologies retenues</h2>
       <h3>Orchestration des serveurs / déploiements avec Fabric</h3>
@@ -717,6 +809,13 @@ URL: https://code.google.com/p/io-2012-slides
 
   <!-- Technologies retenues : orchestration -->
   <slide>
+    <!-- note -->
+    <aside class="note">
+      <section>
+        
+      </section>
+    </aside>
+    
     <hgroup>
       <h2>Technologies retenues</h2>
       <h3>Orchestration / déploiement des serveurs avec Fabric</h3>
@@ -745,6 +844,13 @@ URL: https://code.google.com/p/io-2012-slides
 
   <!-- Technologies retenues : orchestration -->
   <slide>
+    <!-- note -->
+    <aside class="note">
+      <section>
+        
+      </section>
+    </aside>
+    
     <hgroup>
       <h2>Technologies retenues</h2>
       <h3>Orchestration / déploiement des serveurs avec Fabric</h3>
@@ -769,6 +875,13 @@ URL: https://code.google.com/p/io-2012-slides
 
   <!-- Technologies retenues : Superivion : monitoring actif avec Nagios -->
   <slide>
+    <!-- note -->
+    <aside class="note">
+      <section>
+        
+      </section>
+    </aside>
+    
     <hgroup>
       <h2>Technologies retenues</h2>
       <h3>Supervision : Shinken + Thruk</h3>
@@ -780,6 +893,13 @@ URL: https://code.google.com/p/io-2012-slides
 
   <!-- Technologies retenues : Superivion : graphs avec Munin -->
   <slide>
+    <!-- note -->
+    <aside class="note">
+      <section>
+        
+      </section>
+    </aside>
+    
     <hgroup>
       <h2>Technologies retenues</h2>
       <h3>Supervision : graphiques avec Munin</h3>
@@ -795,6 +915,13 @@ URL: https://code.google.com/p/io-2012-slides
 
   <!-- Supervision : centralisation des Logs -->
   <slide>
+    <!-- note -->
+    <aside class="note">
+      <section>
+        
+      </section>
+    </aside>
+    
     <hgroup>
       <h2>Technologies retenues</h2>
       <h3>Supervision : centralisation des Logs</h3>
@@ -810,6 +937,13 @@ URL: https://code.google.com/p/io-2012-slides
 
   <!-- Infra -->
   <slide class="nobackground">
+    <!-- note -->
+    <aside class="note">
+      <section>
+        
+      </section>
+    </aside>
+    
     <hgroup>
       <h2>Infrastructure actuelle</h2>
     </hgroup>
@@ -822,6 +956,13 @@ URL: https://code.google.com/p/io-2012-slides
 
   <!-- Déploiement -->
   <slide>
+    <!-- note -->
+    <aside class="note">
+      <section>
+        
+      </section>
+    </aside>
+    
     <hgroup>
       <h2>Déploiement</h2>
       <h3>Hardware : Serveurs dédiés <a hrf="http://www.ovh.com">OVH</a></h3>
@@ -868,6 +1009,13 @@ URL: https://code.google.com/p/io-2012-slides
 
   <!-- Conclusion et perspectives : Résultats obtenus et avantages apportés -->
   <slide class="nobackground">
+    <!-- note -->
+    <aside class="note">
+      <section>
+        
+      </section>
+    </aside>
+    
     <hgroup>
       <h2>Conclusion</h2>
       <h3>Résultats obtenus et avantages apportés</h3>
@@ -886,6 +1034,13 @@ URL: https://code.google.com/p/io-2012-slides
 
   <!-- Conclusion et perspectives : Difficultés rencontrées -->
   <slide class="nobackground">
+    <!-- note -->
+    <aside class="note">
+      <section>
+        
+      </section>
+    </aside>
+    
     <hgroup>
       <h2>Conclusion</h2>
       <h3>Difficultés rencontrées</h3>
@@ -901,6 +1056,13 @@ URL: https://code.google.com/p/io-2012-slides
 
   <!-- Perspectives-->
   <slide class="nobackground">
+    <!-- note -->
+    <aside class="note">
+      <section>
+        
+      </section>
+    </aside>
+    
     <hgroup>
       <h2>Perspectives</h2>
     </hgroup>
@@ -915,7 +1077,6 @@ URL: https://code.google.com/p/io-2012-slides
   </slide>
 
   <slide class="thank-you-slide segue nobackground">
-    <!--<aside class="gdbar right"><img src="images/google_developers_icon_128.png"></aside>-->
     <article class="flexbox vleft auto-fadein">
       <h2>&lt;Merci !&gt;</h2>
     </article>
