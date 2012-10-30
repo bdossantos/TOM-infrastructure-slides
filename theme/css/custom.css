@@ -44,6 +44,10 @@ strong {
   color: #515151;
 }
 
+em {
+  font-style: italic;
+}
+
 p {
   margin-bottom: 1.5em;
 }
@@ -141,5 +145,5 @@ p {
   background-image: url('../../images/aws.png'), url('../../images/rackspace.png');
   background-position: 70% 100%, 100% 100%;
   background-repeat: no-repeat;
-  min-height: 65%;
+  min-height: 70%;
 }
