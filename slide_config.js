@@ -13,14 +13,14 @@ var SLIDE_CONFIG = {
       'Open Sans:regular,semibold,italic,italicsemibold',
       'Inconsolata'
     ],
-    //theme: ['mytheme'], // Add your own custom themes or styles in /theme/css. Leave off the .css extension.
+    theme: ['custom'], // Add your own custom themes or styles in /theme/css. Leave off the .css extension.
   },
 
   // Author information
   presenters: [{
     name: 'Benjamin Dos Santos',
     company: 'Sys Admin, Arthur Media Group',
-    gplus: 'http://plus.google.com/101066358415149097889',
+    gplus: 'http://gplus.to/benjaminds',
     twitter: '@benjamin_ds',
     www: 'http://b-ds.fr',
     github: 'http://github.com/Benjamin-Ds'

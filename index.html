@@ -18,7 +18,6 @@ URL: https://code.google.com/p/io-2012-slides
   <!--<meta name="viewport" content="initial-scale=0.4">-->
   <meta name="apple-mobile-web-app-capable" content="yes">
   <link rel="stylesheet" media="all" href="theme/css/default.css">
-  <link rel="stylesheet" media="all" href="theme/css/custom.css">
   <link rel="stylesheet" media="only screen and (max-device-width: 480px)" href="theme/css/phone.css">
   <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->
   <script data-main="js/slides" src="js/require-1.0.8.min.js"></script>
@@ -337,10 +336,10 @@ URL: https://code.google.com/p/io-2012-slides
     <article>
       <h3 class="red">La Haute Disponibilité :</h3><br/>
       <ul>
-        <li><strong>SPOF</strong> au niveau de la collecte, tracking et base de données</li>
+        <li><strong>SPOF</strong> (point unique de défaillance) au niveau de la collecte, tracking et bases de données</li>
       </ul>
 
-      <h3 class="red">Tracking instable :</h3><br />
+      <h3 class="red">Tracking instable (nodejs) :</h3><br />
       <ul>
         <li>Fuites de mémoire</li>
         <li>Crash du service</li>
@@ -360,13 +359,11 @@ URL: https://code.google.com/p/io-2012-slides
         <li>Tables utilisant le moteur MyISAM :
           <ul>
             <li>Tables verrouillées en écriture</li>
-            <li>Entassement des requêtes INSERT en file d'attente</li>
             <li>Délais d'attente expirés : perte d'informations</li>
           </ul>
         </li>
-        <li>Structure inadaptée aux nouveaux supports de collecte : enquêtes ...</li>
+        <li>Structure relationnelle "inadaptée" aux nouveaux supports de collecte</li>
         <li>Champs mal indexés / typés</li>
-        <li>Manque de souplesse du modèle relationnel</li>
       </ul>
     </article>
   </slide>
@@ -384,7 +381,7 @@ URL: https://code.google.com/p/io-2012-slides
         <li>Sauvegardes à chaud :
           <ul>
             <li>MySQL Dump : long à effectuer, lent à restaurer</li>
-            <li>Snapshot ? Nous n'utilisons (malheureusement) pas LVM, RDS etc ...</li>
+            <li>Snapshot ? Nous n'utilisons pas LVM, RDS etc ...</li>
           </ul>
         </li>
       </ul>
@@ -434,9 +431,9 @@ URL: https://code.google.com/p/io-2012-slides
     </hgroup>
     <article>
       <ul>
-        <li>Abandon de <strong>Nodejs</strong> : trop instable</li>
+        <li>Abandon de <strong>Nodejs</strong> : instable</li>
         <li>
-          Fichiers journaux vs bases de données clef-valeur distribuées :<br/>
+          Fichiers journaux / bases de données clef-valeur distribuées :<br/>
           <ul>
             <li><strong>Redis</strong></li>
             <li><strong>Memcached</strong></li>
@@ -454,8 +451,8 @@ URL: https://code.google.com/p/io-2012-slides
     </hgroup>
     <article>
       <ul>
-        <li>Lighttpd vs Nginx</li>
-        <li>Remplacer la synchronisation via Rsync</li>
+        <li><strong>Lighttpd</strong> / <strong>Nginx</strong></li>
+        <li>Synchronisation avec Rsync / Stockage réseau</li>
       </ul>
     </article>
   </slide>
@@ -489,9 +486,9 @@ URL: https://code.google.com/p/io-2012-slides
     </hgroup>
     <article id="statiques">
       <ul>
-        <li><strong>Nginx</strong></li>
-        <li><strong>NAS</strong> haute disponibilité</li>
-        <li><strong>Load balancing</strong> : <em>weighted round robin</em></li>
+        <li><strong>Nginx</strong> : serveur HTTP haute performance</li>
+        <li><strong>Stockage NAS</strong> haute disponibilité : NFS</li>
+        <li><strong>Répartition de charge</strong> : <em>weighted round robin</em></li>
       </ul>
     </article>
   </slide>
@@ -794,7 +791,7 @@ URL: https://code.google.com/p/io-2012-slides
       <h3>Orchestration des serveurs / déploiements</h3>
     </hgroup>
     <article>
-      <h3>Exemple de tâche Fabric :</h3>
+      <h3>Exemple de tâches Fabric :</h3>
       <br />
       <ul>
         <li>Déploiement des applications et modules Puppet depuis Github</li>
@@ -922,6 +919,26 @@ URL: https://code.google.com/p/io-2012-slides
     </article>
   </slide>
 
+  <!-- Déploiement -->
+  <slide>
+    <aside class="note">
+      <section>
+
+      </section>
+    </aside>
+
+    <hgroup>
+      <h2>Déploiement</h2>
+      <h3>Hardware </h3>
+    </hgroup>
+    <article id="ovh">
+      <ul>
+        <li>Serveurs dédiés <a hrf="http://www.ovh.com">OVH</a></li>
+        <li>Stockage NAS HA</li>
+      </ul>
+    </article>
+  </slide>
+
   <!-- Infra -->
   <slide class="nobackground">
     <aside class="note">
@@ -940,60 +957,8 @@ URL: https://code.google.com/p/io-2012-slides
     </article>
   </slide>
 
-  <!-- Déploiement -->
-  <slide>
-    <aside class="note">
-      <section>
-
-      </section>
-    </aside>
-
-    <hgroup>
-      <h2>Déploiement</h2>
-      <h3>Hardware : Serveurs dédiés <a hrf="http://www.ovh.com">OVH</a></h3>
-    </hgroup>
-    <article id="ovh">
-      <ul>
-        <li>DB : 4 *
-              <a href="http://www.ovh.com/fr/serveurs_dedies/superplan_best_of.xml">
-                SP Best Of
-              </a>
-        </li>
-        <li>
-          Tracking : 2 *
-              <a href="http://www.ovh.com/fr/serveurs_dedies/superplan_ssd.xml">
-                SP SSD
-              </a>
-        </li>
-        <li>
-          Front : 2 *
-              <a href="http://www.ovh.com/fr/serveurs_dedies/superplan_best_of.xml">
-                SP Best OF
-              </a>
-        </li>
-        <li>
-          Statiques :
-          <ul>
-            <li>
-              4 *
-              <a href="http://www.ovh.com/fr/serveurs_dedies/superplan_mini.xml">
-                SP Mini
-              </a>
-            </li>
-            <li>
-              1 *
-              <a href="http://www.ovh.com/fr/nas/stockages_NAS_HA_Hybrid.xml">
-                NAS Hybride HA
-              </a>
-            </li>
-          </ul>
-        </li>
-      </ul>
-    </article>
-  </slide>
-
   <!-- Difficultés rencontrées -->
-  <slide class="nobackground">
+  <slide>
     <aside class="note">
       <section>
 
@@ -1007,13 +972,13 @@ URL: https://code.google.com/p/io-2012-slides
       <ul>
         <li>Instabilités CouchDB</li>
         <li>Formation sur le tas à des nouvelles technologies : nosql etc ...</li>
-        <li>Délais de réalisation court</li>
+        <li>Délai de réalisation</li>
       </ul>
     </article>
   </slide>
 
   <!-- Conclusion et perspectives : Résultats obtenus et avantages apportés -->
-  <slide class="nobackground">
+  <slide>
     <aside class="note">
       <section>
 
@@ -1036,7 +1001,7 @@ URL: https://code.google.com/p/io-2012-slides
   </slide>
 
   <!-- Perspectives-->
-  <slide class="nobackground">
+  <slide>
     <aside class="note">
       <section>
 
@@ -1051,24 +1016,19 @@ URL: https://code.google.com/p/io-2012-slides
       <br />
       <ul>
         <li>Agilité et élasticité instantanée</li>
-        <li>Economique grâce à la facturation à l'usage</li>
+        <li>Economique : facturation à l'usage</li>
       </ul>
     </article>
   </slide>
 
   <slide class="thank-you-slide segue nobackground">
     <article class="flexbox vleft auto-fadein">
-      <h2>&lt;Merci !&gt;</h2>
+      <h2>Questions ?</h2>
+      <!--<p>Slides @ <em>benjamin-ds.github.com/TOM-infrastructure-slides/</em></p>-->
     </article>
     <p class="auto-fadein" data-config-contact>
       <!-- populated from slide_config.json -->
     </p>
-  </slide>
-
-  <slide class="logoslide dark nobackground">
-    <article class="flexbox vcenter">
-      <h2 style="color: #fff;">Questions ?</h2>
-    </article>
   </slide>
 
   <slide class="backdrop"></slide>
