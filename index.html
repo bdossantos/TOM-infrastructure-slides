@@ -59,13 +59,20 @@ URL: https://code.google.com/p/io-2012-slides
   <!-- Qui ? -->
   <slide>
     <hgroup>
-      <h2>Qui ?</h2>
+      <h2>Qui ? Quoi ?</h2>
     </hgroup>
     <article>
       <h3>Benjamin Dos Santos</h3><br/>
       <ul>
-        <li>Administrateur système chez <a href="#">Arthur Media Group</a></li>
-        <li>Développeur Web</li>
+        <li>Je travaille chez <a href="#">Arthur Media Group</a> depuis deux ans</li>
+        <li>Développeur Web la première année</li>
+        <li>
+          Administrateur système depuis un an :
+          <ul>
+            <li>Déploiement / Administration / Supervision des infrastructures</li>
+            <li>Évolution de l'existant</li>
+          </ul>
+        </li>
       </ul>
       <!--
       <ul id="tagscloud">
@@ -83,7 +90,6 @@ URL: https://code.google.com/p/io-2012-slides
 
   <!-- Présentation AMG -->
   <slide>
-    <!-- note -->
     <aside class="note">
       <section>
         <p>Arthur Media Group est une société e-marketing d'une cinquantaine de
@@ -118,7 +124,6 @@ URL: https://code.google.com/p/io-2012-slides
 
   <!-- Présentation PCP -->
   <slide>
-    <!-- note -->
     <aside class="note">
       <section>
         <p>Régies qui hébergent des bases de
@@ -129,7 +134,7 @@ URL: https://code.google.com/p/io-2012-slides
         réalisent des opérations de recrutement de nouveaux prospects qualifiés
         ainsi que des ventes directes.</p>
 
-        <b>clients :</b>
+        <strong>clients :</strong>
         <ul>
           <li>
             Groupe Prisma Presse : Cuisine Actuelle, Femme Actuelle, Voici,
@@ -162,7 +167,6 @@ URL: https://code.google.com/p/io-2012-slides
 
   <!-- Présentation WM -->
   <slide>
-    <!-- note -->
     <aside class="note">
       <section>
         <p>Welcome Media se consacre à la création de newsletters et sites
@@ -179,7 +183,7 @@ URL: https://code.google.com/p/io-2012-slides
     </hgroup>
     <article id="wm">
       <ul>
-        <li>Édition de site web :
+        <li>Édition de sites web :
           <ul>
             <li>
                <a href="http://www.programmi-tv.com">Programmi TV</a>,
@@ -205,7 +209,6 @@ URL: https://code.google.com/p/io-2012-slides
 
   <!-- Présentation TOM -->
   <slide>
-    <!-- note -->
     <aside class="note">
       <section>
         <p>TOM est une société spécialisée dans la création de
@@ -240,51 +243,17 @@ URL: https://code.google.com/p/io-2012-slides
     </hgroup>
     <article id="tom">
       <ul>
-        <li>Recrutement d'adresse via Overlays, enquêtes, jeux concours</li>
+        <li>Acquisition d'adresses emails : jeux concours, enquêtes, overlays ...</li>
         <li>Livraison des profils collectés</li>
-        <li>4 millions d´emails recrutés en 2010</li>
-        <li>Plus de 50 opérations de collectes pour nos différents clients</li>
-        <li>Plus d´1 milliard d´impressions</li>
+        <li>4 millions d'emails recrutés en 2010</li>
+        <li>Plus d'1 milliard d'impressions</li>
         <li>600 opérations par mois</li>
-      </ul>
-    </article>
-  </slide>
-
-  <!-- Quoi -->
-  <slide>
-    <!-- note -->
-    <aside class="note">
-      <section>
-        <p>Courant 2011, l'infrastructure de la société The Optin Machine a démontré
-        des problèmes de performance et de disponibilité.</p>
-
-        <p>Afin de développer l’activité il a été décidé de refondre et moderniser
-        cette dernière pour permettre de :</p>
-        <br />
-        <ul>
-          <li>augmenter les diffusions</li>
-          <li>augmenter la capacité de collecte</li>
-          <li>diversifier les supports de collecte : enquêtes</li>
-        </ul>
-      </section>
-    </aside>
-
-    <hgroup>
-      <h2>Mon rôle chez Arthur Media</h2>
-    </hgroup>
-    <article>
-      <ul>
-        <li>Déploiement et administration des infrastructures du groupe</li>
-        <li>Mise en place d’infrastructures haute disponibilité</li>
-        <li>Déploiement d'outils de supervision</li>
-        <li>Intégration de bonnes pratiques comme infrastructure as code et DevOps</li>
       </ul>
     </article>
   </slide>
 
   <!-- Description projet -->
   <slide>
-    <!-- note -->
     <aside class="note">
       <section>
         <p>Courant 2011, l'infrastructure a démontré des problèmes de performance et
@@ -321,7 +290,6 @@ URL: https://code.google.com/p/io-2012-slides
 
   <!-- Présentation de l'existant, schéma -->
   <slide class="nobackground">
-    <!-- note -->
     <aside class="note">
       <section>
         <ul>
@@ -389,16 +357,16 @@ URL: https://code.google.com/p/io-2012-slides
     <article>
       <h3 class="red">La base de données MySQL :</h3><br />
       <ul>
-        <li>Champs mal indexés</li>
         <li>Tables utilisant le moteur MyISAM :
           <ul>
-            <li>Table individus verrouillée en écriture</li>
+            <li>Tables verrouillées en écriture</li>
             <li>Entassement des requêtes INSERT en file d'attente</li>
-            <li>Perte d'informations à cause des délais d'attente expirés</li>
+            <li>Délais d'attente expirés : perte d'informations</li>
           </ul>
         </li>
-        <li>Schéma inadapté aux nouveaux supports de collecte : enquêtes ...</li>
-        <li>Manque de souplesse du modèle relationnelle</li>
+        <li>Structure inadaptée aux nouveaux supports de collecte : enquêtes ...</li>
+        <li>Champs mal indexés / typés</li>
+        <li>Manque de souplesse du modèle relationnel</li>
       </ul>
     </article>
   </slide>
@@ -411,8 +379,8 @@ URL: https://code.google.com/p/io-2012-slides
     <article>
       <h3 class="red">Opération sur la base de données :</h3><br />
       <ul>
-        <li>Répliquer nécessite de verrouiller le maître en écriture ...</li>
-        <li>70 GO de données ...</li>
+        <li>Répliquer nécessite de verrouiller le maître en écriture : coupure de service</li>
+        <li>70 GO de données !</li>
         <li>Sauvegardes à chaud :
           <ul>
             <li>MySQL Dump : long à effectuer, lent à restaurer</li>
@@ -429,10 +397,10 @@ URL: https://code.google.com/p/io-2012-slides
       <h2>Objectifs de la refonte</h2>
     </hgroup>
     <article>
-      <ul class="no_bullet build">
+      <ul class="no_bullet">
         <li><h3>- Améliorer la disponibilité de l'infrastructure</h3></li>
         <li><h3>- Gestion des configurations</h3></li>
-        <li><h3>- Orchestration des serveurs</h3></li>
+        <li><h3>- "Orchestration" des serveurs</h3></li>
       </ul>
     </article>
   </slide>
@@ -444,7 +412,8 @@ URL: https://code.google.com/p/io-2012-slides
       <h3>Base de données de collecte</h3>
     </hgroup>
     <article>
-      <h4>Bases de données NoSQL orientées document :</h4><br/>
+      <h4>Bases de données <strong>NoSQL</strong> orientées document :</h4>
+      <br/>
       <ul>
         <li><strong>MongoDB</strong></li>
         <li><strong>CouchDB</strong></li>
@@ -465,9 +434,9 @@ URL: https://code.google.com/p/io-2012-slides
     </hgroup>
     <article>
       <ul>
-        <li>Continuer avec <strong>Nodejs</strong> ?</li>
+        <li>Abandon de <strong>Nodejs</strong> : trop instable</li>
         <li>
-          Logs vs bases de données clef-valeur distribuées :<br/>
+          Fichiers journaux vs bases de données clef-valeur distribuées :<br/>
           <ul>
             <li><strong>Redis</strong></li>
             <li><strong>Memcached</strong></li>
@@ -486,14 +455,13 @@ URL: https://code.google.com/p/io-2012-slides
     <article>
       <ul>
         <li>Lighttpd vs Nginx</li>
-        <li>Rsync</li>
+        <li>Remplacer la synchronisation via Rsync</li>
       </ul>
     </article>
   </slide>
 
   <!-- Technologies retenues : statiques -->
   <slide>
-    <!-- note -->
     <aside class="note">
       <section>
         <p>
@@ -523,14 +491,13 @@ URL: https://code.google.com/p/io-2012-slides
       <ul>
         <li><strong>Nginx</strong></li>
         <li><strong>NAS</strong> haute disponibilité</li>
-        <li><strong>Load balancing</strong> via <strong>Weighted round robin</strong></li>
+        <li><strong>Load balancing</strong> : <em>weighted round robin</em></li>
       </ul>
     </article>
   </slide>
 
   <!-- Technologies retenues : DB -->
   <slide>
-    <!-- note -->
     <aside class="note">
       <section>
 
@@ -553,7 +520,6 @@ URL: https://code.google.com/p/io-2012-slides
 
   <!-- Technologies retenues : Supports de collecte -->
   <slide>
-    <!-- note -->
     <aside class="note">
       <section>
         <p>
@@ -579,15 +545,14 @@ URL: https://code.google.com/p/io-2012-slides
     <article id="collecte">
       <ul>
         <li><strong>Nginx</strong> : serveur web en frontal</li>
-        <li><strong>PHP-FPM</strong> : traitement des requêtes avec PHP</li>
-        <li><strong>REST</strong> : enregistrement des données sur CouchDB avec CURL</li>
+        <li><strong>PHP</strong> : validation et enregistrement des données</li>
+        <li><strong>REST</strong> : les applications utilisent HTTP pour communiquer avec CouchDB</li>
       </ul>
     </article>
   </slide>
 
   <!-- Technologies retenues : Tracking -->
   <slide>
-    <!-- note -->
     <aside class="note">
       <section>
 
@@ -601,16 +566,14 @@ URL: https://code.google.com/p/io-2012-slides
     <article id="tracking">
       <ul>
         <li><strong>Nginx</strong> : serveur web en frontal</li>
-        <li><strong>PHP-FPM</strong> : traitement des requêtes dynamiques</li>
-        <li><strong>Redis</strong> : enregistrement des affichages et cliques</li>
-        <li><strong>REST</strong> : agrégation des statistiques de chaque noeud</li>
+        <li><strong>PHP + Redis</strong> : enregistrement des affichages et cliques</li>
+        <li><strong>REST</strong> : agrégation des statistiques de chaque serveur</li>
       </ul>
     </article>
   </slide>
 
   <!-- Technologies retenues : infrastructure as code -->
   <slide>
-    <!-- note -->
     <aside class="note">
       <section>
 
@@ -624,23 +587,28 @@ URL: https://code.google.com/p/io-2012-slides
     <article id="configs">
       <ul>
         <li>
-          <strong>Puppet</strong> : modules dédiés à chaque brique de
-          l'infrastructure :
-          <br />
+          <p>
+            <strong>Puppet</strong> : modules dédiés à la configuration des serveurs
+            selon leur rôle :
+          </p>
           <ul>
             <li>Bases de données</li>
-            <li>Serveur statiques</li>
-            <li>Serveurs de Tracking</li>
+            <li>Serveurs statiques</li>
+            <li>Serveurs de tracking</li>
+            <li>Serveurs d'applications</li>
           </ul>
+          <br />
         </li>
-        <li><strong>Git + Github</strong> : contrôle de version, déploiement</li>
+        <li>
+          <strong>Git + Github</strong> : gestion de versions, déploiement
+        </li>
       </ul>
     </article>
   </slide>
 
   <!-- Technologies retenues : infrastructure as code, exemple de module -->
+  <!--
   <slide>
-    <!-- note -->
     <aside class="note">
       <section>
 
@@ -654,31 +622,31 @@ URL: https://code.google.com/p/io-2012-slides
     <article class="smaller">
       <pre class="prettyprint" data-lang="ruby">
       class tom_static {
-        package { 'nginx-full':
+        package { 'nginx':
           ensure  => 'installed',
         }
 
         service { 'nginx':
           ensure  => running,
           enable  => true,
-          require => Package['nginx-full'];
+          require => Package['nginx'];
         }
 
         file { '/etc/nginx/nginx.conf':
           ensure  => 'file',
           content => template('tom_static/etc/nginx/nginx.conf.erb'),
           notify  => Service['nginx'],
-          require => Package['nginx-full'];
+          require => Package['nginx'];
         }
         # rest of code ...
       }
       </pre>
     </article>
   </slide>
+  -->
 
   <!-- Technologies retenues : Puppet roles -->
   <slide>
-    <!-- note -->
     <aside class="note">
       <section>
 
@@ -698,7 +666,6 @@ URL: https://code.google.com/p/io-2012-slides
 
   <!-- Technologies retenues : Puppet roles -->
   <slide>
-    <!-- note -->
     <aside class="note">
       <section>
 
@@ -709,24 +676,19 @@ URL: https://code.google.com/p/io-2012-slides
       <h2>Technologies retenues</h2>
       <h3>Classification des serveurs par rôle avec Puppet</h3>
     </hgroup>
-    <article class="smaller">
+    <article>
       <pre class="prettyprint" data-lang="ruby">
-      # Base node
-      node base {
-        include init_host, sysctl_tuning, rsyslog, munin, nagios
-      }
-
-      # All
-      node default inherits base {}
-
-      # DB
+      # Databases servers
       node '/^db\d+\.optin-machine\.fr$/' {
-        class { 'couchdb':
-          bind => '0.0.0.0',
-        }
+        include couchdb
       }
 
-      # Statics
+      # Tracking servers
+      node '/^tracking\d+\.optin-machine\.fr$/' {
+        include tom_tracking
+      }
+
+      # Statics servers
       node '/^static\d+\.optin-machine\.fr$/' {
         include tom_static
       }
@@ -761,8 +723,8 @@ URL: https://code.google.com/p/io-2012-slides
   -->
 
   <!-- Technologies retenues : Environnement "Production like" -->
+  <!--
   <slide>
-    <!-- note -->
     <aside class="note">
       <section>
 
@@ -797,10 +759,10 @@ URL: https://code.google.com/p/io-2012-slides
       </pre>
     </article>
   </slide>
+  -->
 
   <!-- Technologies retenues : orchestration -->
   <slide>
-    <!-- note -->
     <aside class="note">
       <section>
 
@@ -809,7 +771,7 @@ URL: https://code.google.com/p/io-2012-slides
 
     <hgroup>
       <h2>Technologies retenues</h2>
-      <h3>Orchestration des serveurs / déploiements avec Fabric</h3>
+      <h3>Orchestration des serveurs / déploiements</h3>
     </hgroup>
     <article id="python">
       <q>
@@ -821,7 +783,6 @@ URL: https://code.google.com/p/io-2012-slides
 
   <!-- Technologies retenues : orchestration -->
   <slide>
-    <!-- note -->
     <aside class="note">
       <section>
 
@@ -830,14 +791,17 @@ URL: https://code.google.com/p/io-2012-slides
 
     <hgroup>
       <h2>Technologies retenues</h2>
-      <h3>Orchestration / déploiement des serveurs avec Fabric</h3>
+      <h3>Orchestration des serveurs / déploiements</h3>
     </hgroup>
-    <article class="smaller">
+    <article>
+      <h3>Exemple de tâche Fabric :</h3>
+      <br />
       <ul>
         <li>Déploiement des applications et modules Puppet depuis Github</li>
         <li>Configuration des machines avec Puppet</li>
         <li>Mise à jour des serveurs, redémarrage des services ...</li>
       </ul>
+      <!--
       <br />
       <pre class="prettyprint" data-lang="shell">
       # Configuration automatique grâce au fichier de classification
@@ -851,12 +815,13 @@ URL: https://code.google.com/p/io-2012-slides
       deploy:repo='git@github.com:ArthurMediaGroup/www.programma-tv.com.git', \
       dest='/home/http/www.programma-tv.com'
       </pre>
+      -->
     </article>
   </slide>
 
   <!-- Technologies retenues : orchestration -->
+  <!--
   <slide>
-    <!-- note -->
     <aside class="note">
       <section>
 
@@ -884,13 +849,19 @@ URL: https://code.google.com/p/io-2012-slides
       </pre>
     </article>
   </slide>
+  -->
 
   <!-- Technologies retenues : Superivion : monitoring actif avec Nagios -->
   <slide>
-    <!-- note -->
     <aside class="note">
       <section>
+        <p>
+        Shinken est une application de supervision système et réseau.
 
+        Tout comme Nagios, Shinken surveille les hôtes et services spécifiés, et lève des
+        alertes lorsque des systèmes ont des dysfonctionnements et lorsqu'ils repassent
+        en fonctionnement normal. C'est un logiciel libre sous licence GNU AGPL.
+        </p>
       </section>
     </aside>
 
@@ -905,7 +876,6 @@ URL: https://code.google.com/p/io-2012-slides
 
   <!-- Technologies retenues : Superivion : graphs avec Munin -->
   <slide>
-    <!-- note -->
     <aside class="note">
       <section>
 
@@ -927,10 +897,15 @@ URL: https://code.google.com/p/io-2012-slides
 
   <!-- Supervision : centralisation des Logs -->
   <slide>
-    <!-- note -->
     <aside class="note">
       <section>
+        <p>
+        Une solution SaaS a été mise en place pour centraliser nos journaux.
+        Rsyslog + GNU TLS pour la transmission des logs.
 
+        Les fonctionnalités offertes par Papertrail sont similaires aux solutions
+        self-host à un moindre coût (pay as you go).
+        </p>
       </section>
     </aside>
 
@@ -949,7 +924,6 @@ URL: https://code.google.com/p/io-2012-slides
 
   <!-- Infra -->
   <slide class="nobackground">
-    <!-- note -->
     <aside class="note">
       <section>
 
@@ -968,7 +942,6 @@ URL: https://code.google.com/p/io-2012-slides
 
   <!-- Déploiement -->
   <slide>
-    <!-- note -->
     <aside class="note">
       <section>
 
@@ -1019,9 +992,28 @@ URL: https://code.google.com/p/io-2012-slides
     </article>
   </slide>
 
+  <!-- Difficultés rencontrées -->
+  <slide class="nobackground">
+    <aside class="note">
+      <section>
+
+      </section>
+    </aside>
+
+    <hgroup>
+      <h2>Difficultés rencontrées</h2>
+    </hgroup>
+    <article>
+      <ul>
+        <li>Instabilités CouchDB</li>
+        <li>Formation sur le tas à des nouvelles technologies : nosql etc ...</li>
+        <li>Délais de réalisation court</li>
+      </ul>
+    </article>
+  </slide>
+
   <!-- Conclusion et perspectives : Résultats obtenus et avantages apportés -->
   <slide class="nobackground">
-    <!-- note -->
     <aside class="note">
       <section>
 
@@ -1038,37 +1030,17 @@ URL: https://code.google.com/p/io-2012-slides
         <li>Les configurations sont sous contrôle de version</li>
         <li>L'administration de l'infrastructure est centralisée</li>
         <li>Les déploiements sont facilités et automatisés</li>
-        <li>Cette infrastructure est <strong>haute disponibilité</strong> et <strong>Scalable</strong> horizontalement</li>
-        <li>En production depuis septembre 2011</li>
-      </ul>
-    </article>
-  </slide>
-
-  <!-- Conclusion et perspectives : Difficultés rencontrées -->
-  <slide class="nobackground">
-    <!-- note -->
-    <aside class="note">
-      <section>
-
-      </section>
-    </aside>
-
-    <hgroup>
-      <h2>Conclusion</h2>
-      <h3>Difficultés rencontrées</h3>
-    </hgroup>
-    <article>
-      <ul>
-        <li>Instabilités CouchDB</li>
-        <li>Formation sur le tas à des nouvelles technologies : nosql etc ...</li>
-        <li>Délais de réalisation court</li>
+        <li>
+          Cette infrastructure est <strong>haute disponibilité</strong>
+          <!--et <strong>Scalable</strong> horizontalement-->
+        </li>
+        <!--<li>En production depuis septembre 2011</li>-->
       </ul>
     </article>
   </slide>
 
   <!-- Perspectives-->
   <slide class="nobackground">
-    <!-- note -->
     <aside class="note">
       <section>
 
@@ -1079,11 +1051,11 @@ URL: https://code.google.com/p/io-2012-slides
       <h2>Perspectives</h2>
     </hgroup>
     <article id="cloud">
-      <h3>Le cloud publique</h3>
+      <h3>Le <em>cloud</em> publique :</h3>
       <br />
       <ul>
         <li>Agilité et élasticité instantanée</li>
-        <li>Economique grâce à la facturation à l’usage</li>
+        <li>Economique grâce à la facturation à l'usage</li>
       </ul>
     </article>
   </slide>
@@ -1107,15 +1079,10 @@ URL: https://code.google.com/p/io-2012-slides
 </slides>
 
 <script>
-var _gaq = _gaq || [];
-_gaq.push(['_setAccount', 'UA-9203113-4']);
-_gaq.push(['_trackPageview']);
-
-(function() {
-  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-  ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-})();
+var _gaq=[['_setAccount','UA-9203113-4'],['_trackPageview']];
+(function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+s.parentNode.insertBefore(g,s)}(document,'script'))
 </script>
 
 <!--[if IE]>
