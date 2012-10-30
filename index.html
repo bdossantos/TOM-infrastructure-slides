@@ -73,17 +73,6 @@ URL: https://code.google.com/p/io-2012-slides
           </ul>
         </li>
       </ul>
-      <!--
-      <ul id="tagscloud">
-        <li>Sysadmin</li>
-        <li>DevOps</li>
-        <li>Webperf</li>
-        <li>AWS</li>
-        <li>InfrastructureAsCode</li>
-        <li>Puppet</li>
-        <li>Chef</li>
-      </ul>
-      -->
     </article>
   </slide>
 
@@ -91,9 +80,11 @@ URL: https://code.google.com/p/io-2012-slides
   <slide>
     <aside class="note">
       <section>
-        <p>Arthur Media Group est une société e-marketing d'une cinquantaine de
-        collaborateurs regroupant plusieurs start-up aux activités diverses sur
-        Internet</p>
+        <p>
+          Arthur Media Group est une société e-marketing d'une cinquantaine de
+          collaborateurs regroupant plusieurs start-up aux activités diverses sur
+          Internet
+        </p>
       </section>
     </aside>
 
@@ -223,15 +214,15 @@ URL: https://code.google.com/p/io-2012-slides
             temps de lancement
           </li>
           <li>
-            Expertise d’association de marques pour réduire les coûts de
+            Expertise d'association de marques pour réduire les coûts de
             collecte
           </li>
           <li>
-            Technologie d’enquête à vocation de collecte de données
+            Technologie d'enquête à vocation de collecte de données
             (ex : Grande enquête sur la santé des femmes)
           </li>
           <li>Technologie de mini-sites spécialisés en collecte </li>
-          <li>Outils de monétisations d’audience : coregistration, overlay etc .</li>
+          <li>Outils de monétisations d'audience : coregistration, overlay etc .</li>
         </ul>
       </section>
     </aside>
@@ -376,7 +367,10 @@ URL: https://code.google.com/p/io-2012-slides
     <article>
       <h3 class="red">Opération sur la base de données :</h3><br />
       <ul>
-        <li>Répliquer nécessite de verrouiller le maître en écriture : coupure de service</li>
+        <li>
+          Mettre en oeuvre la réplication nécessite de verrouiller les tables
+          du serveur maître en écriture : interruption du service
+        </li>
         <li>70 GO de données !</li>
         <li>Sauvegardes à chaud :
           <ul>
@@ -665,7 +659,19 @@ URL: https://code.google.com/p/io-2012-slides
   <slide>
     <aside class="note">
       <section>
+        <p>
+          La liste des modules à appliquer à une machine est déterminée grâce
+          à son nom d'hôte.
+        </p>
 
+        <p>La convention de nommage utilisée par nos machines :</p>
+
+        <ul>
+          <li>db[0-9].optin-machine.fr : les bases de données</li>
+          <li>media[0-9].optin-machine.fr : les serveurs statiques</li>
+          <li>tracking[0-9].optin-machine.fr : les tracking</li>
+          <li>front[0-9].optin-machine.fr : les serveurs d'applications</li>
+        </ul>
       </section>
     </aside>
 
@@ -762,7 +768,16 @@ URL: https://code.google.com/p/io-2012-slides
   <slide>
     <aside class="note">
       <section>
+        <p>
+        Fabric est une librairie écrite en Python utilisant SSH pour faciliter
+        les déploiements d'applications et les tâches d'administration système
+        sur plusieurs hôtes.
+        </p>
 
+        <p>
+        Fabric permet d'exécuter des commandes en parallèle sur plusieurs
+        machines, envoyer/télécharger des fichiers ...
+        </p>
       </section>
     </aside>
 
@@ -798,55 +813,8 @@ URL: https://code.google.com/p/io-2012-slides
         <li>Configuration des machines avec Puppet</li>
         <li>Mise à jour des serveurs, redémarrage des services ...</li>
       </ul>
-      <!--
-      <br />
-      <pre class="prettyprint" data-lang="shell">
-      # Configuration automatique grâce au fichier de classification
-      fab -H db01.optin-machine.fr configure:site='/etc/puppet/manifests/site.pp'
-
-      # Configuration manuel avec liste des modules à utiliser
-      fab -H db01.optin-machine.fr configure:modules='couchdb,munin,nagios'
-
-      # Déploiement de code depuis le SCM
-      fab -H front01.domain.tld -A \
-      deploy:repo='git@github.com:ArthurMediaGroup/www.programma-tv.com.git', \
-      dest='/home/http/www.programma-tv.com'
-      </pre>
-      -->
     </article>
   </slide>
-
-  <!-- Technologies retenues : orchestration -->
-  <!--
-  <slide>
-    <aside class="note">
-      <section>
-
-      </section>
-    </aside>
-
-    <hgroup>
-      <h2>Technologies retenues</h2>
-      <h3>Orchestration / déploiement des serveurs avec Fabric</h3>
-    </hgroup>
-    <article>
-      <pre class="prettyprint" data-lang="python">
-      def puppet_apply(module='', args='', options='--modulepath /etc/puppet/modules'):
-          """
-          Apply Puppet module
-
-          eg : fab -R db puppet_apply:module=couchdb
-          """
-          if module != '':
-              print(green("Apply '%s' Puppet module to %s" % (module, env.host_string)))
-              options += ' --logdest console --logdest syslog'
-              run("puppet apply -e 'include %(module)s %(args)s' %(options)s" % locals())
-          else:
-              abort(red('Module name required !'))
-      </pre>
-    </article>
-  </slide>
-  -->
 
   <!-- Technologies retenues : Superivion : monitoring actif avec Nagios -->
   <slide>
@@ -875,7 +843,10 @@ URL: https://code.google.com/p/io-2012-slides
   <slide>
     <aside class="note">
       <section>
+        Munin nous permet de générer une série de graphiques représentant
+        l'utilisation des ressources de nos machines :
 
+        Charge cpu, disque, RAM, interfaces réseaux, requêtes HTTP/s .
       </section>
     </aside>
 
@@ -897,11 +868,20 @@ URL: https://code.google.com/p/io-2012-slides
     <aside class="note">
       <section>
         <p>
-        Une solution SaaS a été mise en place pour centraliser nos journaux.
-        Rsyslog + GNU TLS pour la transmission des logs.
-
-        Les fonctionnalités offertes par Papertrail sont similaires aux solutions
-        self-host à un moindre coût (pay as you go).
+          Lorsque votre infrastructure compte plusieurs dizaines de serveurs
+          voir plusieurs centaines, différents problèmes se posent :
+        </p>
+        <ul>
+          <li>Le volume de log est très important sur chaque serveur</li>
+          <li>
+            Il n'est pas envisageable de passer d'un serveur à l'autre
+            pour les consulter
+          </li>
+        </ul>
+        <p>
+          L'intérêt est de centraliser l'information pour proposer une source
+          unique et de disposer d'une méthode de traitement efficace pour
+          filtrer rapidement les éléments pertinents.
         </p>
       </section>
     </aside>
