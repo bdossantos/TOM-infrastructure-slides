@@ -4,4 +4,4 @@ Slides présentés à l'épreuve professionnelle de soutenance du Master.
 
 INGESUP, octobre 2012
 
-http://benjamin-ds.github.com/TOM-infrastructure-slides/
+http://bdossantos.github.com/TOM-infrastructure-slides/
