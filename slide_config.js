@@ -23,7 +23,7 @@ var SLIDE_CONFIG = {
     gplus: 'http://gplus.to/benjaminds',
     twitter: '@benjamin_ds',
     www: 'http://b-ds.fr',
-    github: 'http://github.com/Benjamin-Ds'
+    github: 'http://github.com/bdossantos'
   }]
 };
 
